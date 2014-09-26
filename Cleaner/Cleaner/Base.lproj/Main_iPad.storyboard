@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A361p" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -44,8 +44,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="468" translatesAutoresizingMaskIntoConstraints="NO" id="bco-hG-EMe">
-                                <rect key="frame" x="150" y="266" width="468" height="21"/>
+                                <rect key="frame" x="150" y="266" width="468" height="539"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="539" id="ady-QT-p91"/>
+                                    <constraint firstAttribute="width" constant="468" id="rSe-vv-9Ry"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -54,13 +58,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HwP-4h-uSZ" firstAttribute="top" secondItem="Qhc-bU-Lbn" secondAttribute="bottom" constant="35" id="31A-e7-n7p"/>
-                            <constraint firstAttribute="trailing" secondItem="bco-hG-EMe" secondAttribute="trailing" constant="150" id="Bdi-8X-Ayg"/>
+                            <constraint firstItem="bco-hG-EMe" firstAttribute="centerX" secondItem="HwP-4h-uSZ" secondAttribute="centerX" id="6s2-QJ-CkD"/>
                             <constraint firstItem="Qhc-bU-Lbn" firstAttribute="top" secondItem="dtS-ta-cdc" secondAttribute="bottom" constant="20" id="MJ6-ly-W0E"/>
                             <constraint firstAttribute="centerX" secondItem="dtS-ta-cdc" secondAttribute="centerX" id="N9C-PW-bVQ"/>
-                            <constraint firstItem="bco-hG-EMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="150" id="O4t-d2-EWS"/>
-                            <constraint firstItem="bco-hG-EMe" firstAttribute="top" secondItem="HwP-4h-uSZ" secondAttribute="bottom" constant="40" id="XXB-kS-0d4"/>
                             <constraint firstItem="Qhc-bU-Lbn" firstAttribute="centerX" secondItem="dtS-ta-cdc" secondAttribute="centerX" id="Z4T-WO-i39"/>
                             <constraint firstItem="dtS-ta-cdc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="70" id="f4i-Ep-CC2"/>
+                            <constraint firstItem="bco-hG-EMe" firstAttribute="top" secondItem="HwP-4h-uSZ" secondAttribute="bottom" constant="40" id="loo-qD-Oiy"/>
                             <constraint firstAttribute="trailing" secondItem="HwP-4h-uSZ" secondAttribute="trailing" constant="200" id="u5c-fL-rwp"/>
                             <constraint firstItem="HwP-4h-uSZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="200" id="wug-cP-uuU"/>
                         </constraints>
