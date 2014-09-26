@@ -14,6 +14,11 @@ typedef NS_ENUM(NSInteger, ConnectionType) {
     ConnectionTypeNone = 3,
 };
 
+typedef NS_ENUM(NSInteger, PeerType) {
+    PeerTypeMaster = 1,
+    PeerTypeSlave = 2
+};
+
 static NSString *const CleanerService = @"cleaner-service";
 
 @protocol ConnectionManagerDelegate <NSObject>

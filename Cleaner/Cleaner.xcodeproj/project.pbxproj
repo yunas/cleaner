@@ -15,7 +15,6 @@
 		5C3073BA19D29D3F00D954C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3073B919D29D3F00D954C0 /* AppDelegate.m */; };
 		5C3073BD19D29D3F00D954C0 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C3073BB19D29D3F00D954C0 /* Main_iPhone.storyboard */; };
 		5C3073C019D29D3F00D954C0 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C3073BE19D29D3F00D954C0 /* Main_iPad.storyboard */; };
-		5C3073C319D29D3F00D954C0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3073C219D29D3F00D954C0 /* ViewController.m */; };
 		5C3073C519D29D3F00D954C0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C3073C419D29D3F00D954C0 /* Images.xcassets */; };
 		5C3073CC19D29D3F00D954C0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3073CB19D29D3F00D954C0 /* XCTest.framework */; };
 		5C3073CD19D29D3F00D954C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3073A919D29D3F00D954C0 /* Foundation.framework */; };
@@ -23,7 +22,9 @@
 		5C3073D619D29D3F00D954C0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C3073D419D29D3F00D954C0 /* InfoPlist.strings */; };
 		5C3073D819D29D3F00D954C0 /* CleanerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3073D719D29D3F00D954C0 /* CleanerTests.m */; };
 		5C3073E219D29D8600D954C0 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3073E119D29D8600D954C0 /* MultipeerConnectivity.framework */; };
-		5C3073E619D29E6B00D954C0 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C3073E519D29E6B00D954C0 /* ConnectionManager.m */; };
+		F88D7B0119D570AC00019602 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F88D7AF819D570AC00019602 /* ConnectionManager.m */; };
+		F88D7B0219D570AC00019602 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F88D7AFC19D570AC00019602 /* ViewController.m */; };
+		F88D7B0319D570AC00019602 /* BorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F88D7B0019D570AC00019602 /* BorderButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +50,6 @@
 		5C3073B919D29D3F00D954C0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5C3073BC19D29D3F00D954C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5C3073BF19D29D3F00D954C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		5C3073C119D29D3F00D954C0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5C3073C219D29D3F00D954C0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5C3073C419D29D3F00D954C0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C3073CA19D29D3F00D954C0 /* CleanerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C3073CB19D29D3F00D954C0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -58,9 +57,13 @@
 		5C3073D519D29D3F00D954C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5C3073D719D29D3F00D954C0 /* CleanerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CleanerTests.m; sourceTree = "<group>"; };
 		5C3073E119D29D8600D954C0 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
-		5C3073E319D29E5700D954C0 /* ConnectionManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionManagerDelegate.h; sourceTree = "<group>"; };
-		5C3073E419D29E6B00D954C0 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
-		5C3073E519D29E6B00D954C0 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
+		F88D7AF719D570AC00019602 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
+		F88D7AF819D570AC00019602 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
+		F88D7AF919D570AC00019602 /* ConnectionManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManagerDelegate.h; sourceTree = "<group>"; };
+		F88D7AFB19D570AC00019602 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F88D7AFC19D570AC00019602 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F88D7AFF19D570AC00019602 /* BorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderButton.h; sourceTree = "<group>"; };
+		F88D7B0019D570AC00019602 /* BorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,15 +125,12 @@
 		5C3073AF19D29D3F00D954C0 /* Cleaner */ = {
 			isa = PBXGroup;
 			children = (
+				F88D7AF519D570AC00019602 /* Classes */,
+				F88D7AFD19D570AC00019602 /* Thirdparty */,
 				5C3073B819D29D3F00D954C0 /* AppDelegate.h */,
-				5C3073E319D29E5700D954C0 /* ConnectionManagerDelegate.h */,
-				5C3073E419D29E6B00D954C0 /* ConnectionManager.h */,
-				5C3073E519D29E6B00D954C0 /* ConnectionManager.m */,
 				5C3073B919D29D3F00D954C0 /* AppDelegate.m */,
 				5C3073BB19D29D3F00D954C0 /* Main_iPhone.storyboard */,
 				5C3073BE19D29D3F00D954C0 /* Main_iPad.storyboard */,
-				5C3073C119D29D3F00D954C0 /* ViewController.h */,
-				5C3073C219D29D3F00D954C0 /* ViewController.m */,
 				5C3073C419D29D3F00D954C0 /* Images.xcassets */,
 				5C3073B019D29D3F00D954C0 /* Supporting Files */,
 			);
@@ -164,6 +164,51 @@
 				5C3073D419D29D3F00D954C0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F88D7AF519D570AC00019602 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F88D7AF619D570AC00019602 /* Managers */,
+				F88D7AFA19D570AC00019602 /* ViewControllers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F88D7AF619D570AC00019602 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F88D7AF719D570AC00019602 /* ConnectionManager.h */,
+				F88D7AF819D570AC00019602 /* ConnectionManager.m */,
+				F88D7AF919D570AC00019602 /* ConnectionManagerDelegate.h */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F88D7AFA19D570AC00019602 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F88D7AFB19D570AC00019602 /* ViewController.h */,
+				F88D7AFC19D570AC00019602 /* ViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F88D7AFD19D570AC00019602 /* Thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				F88D7AFE19D570AC00019602 /* BorderButton */,
+			);
+			path = Thirdparty;
+			sourceTree = "<group>";
+		};
+		F88D7AFE19D570AC00019602 /* BorderButton */ = {
+			isa = PBXGroup;
+			children = (
+				F88D7AFF19D570AC00019602 /* BorderButton.h */,
+				F88D7B0019D570AC00019602 /* BorderButton.m */,
+			);
+			path = BorderButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +312,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C3073C319D29D3F00D954C0 /* ViewController.m in Sources */,
-				5C3073E619D29E6B00D954C0 /* ConnectionManager.m in Sources */,
+				F88D7B0219D570AC00019602 /* ViewController.m in Sources */,
+				F88D7B0319D570AC00019602 /* BorderButton.m in Sources */,
+				F88D7B0119D570AC00019602 /* ConnectionManager.m in Sources */,
 				5C3073BA19D29D3F00D954C0 /* AppDelegate.m in Sources */,
 				5C3073B619D29D3F00D954C0 /* main.m in Sources */,
 			);
@@ -489,6 +535,7 @@
 				5C3073DD19D29D4000D954C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C3073DE19D29D4000D954C0 /* Build configuration list for PBXNativeTarget "CleanerTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +544,7 @@
 				5C3073E019D29D4000D954C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

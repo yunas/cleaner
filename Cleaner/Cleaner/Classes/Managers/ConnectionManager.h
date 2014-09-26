@@ -27,6 +27,7 @@
 - (void)sendMessage:(NSString *)message;
 
 - (void)stopPeer2PeerService;
+- (void)disconnectWithServer;
 
 //- (void)bacgroundHandling;
 

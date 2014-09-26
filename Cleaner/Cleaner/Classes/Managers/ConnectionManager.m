@@ -35,17 +35,30 @@
     [_advertiser stop];
     _advertiser = nil;
     _browser = nil;
+    [_session disconnect];
+    //_session = nil;
 }
 
--(id)init{
+- (void)disconnectWithServer {
+    [_session disconnect];
+    
+}
+
+- (void)initializeSettings {
+    
+    [self setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
+    _browser = nil;
+    _advertiser = nil;
+    _type = ConnectionTypeNone;
+}
+
+-(id)init {
     
     self = [super init];
     
     if (self) {
-        [self setupPeerAndSessionWithDisplayName:[UIDevice currentDevice].name];
-        _browser = nil;
-        _advertiser = nil;
-        _type = ConnectionTypeNone;
+        
+        [self initializeSettings];
     }
     
     return self;
@@ -118,17 +131,27 @@
 
 - (void)startBrowsingWithDelegate:(id)delegate {
     
+    [self initializeSettings];
+    
     _type = ConnectionTypeBrowser;
     _delegate = delegate;
     
     if (_browser == nil) {
-        _browser = [[MCBrowserViewController alloc] initWithServiceType:CleanerService session:_session];
+        
+        _browser = [[MCBrowserViewController alloc] initWithServiceType:CleanerService
+                                                                session:_session];
+        
         _browser.delegate = self;
     }
     [(UIViewController *)delegate presentViewController:_browser animated:YES completion:nil];
 }
 
 - (void)sendMessage:(NSString *)message {
+    
+    if (!_session.connectedPeers.count) {
+        return;
+    }
+    
     
     NSData *textData = [message dataUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"Send Data: %@", message);
@@ -154,7 +177,7 @@
 #pragma mark - Private methods
 
 - (void)sendDammyData {
-    [self sendMessage:[NSString stringWithFormat:@"IGNORE:%f",[[NSDate date] timeIntervalSince1970]]];
+    //[self sendMessage:[NSString stringWithFormat:@"IGNORE:%f",[[NSDate date] timeIntervalSince1970]]];
 }
 
 #pragma mark - MCBrowserViewControllerDelegate
@@ -164,18 +187,24 @@
     
     if (_delegate && [_delegate respondsToSelector:@selector(didConntectedWithManager:status:)]) {
         
-        NSDictionary *dict = @{@"peerID": _peerID,
+        MCPeerID *peerId = [_session.connectedPeers firstObject];
+        NSLog(@"Abid's Debugging -> %@",peerId.displayName);
+        
+        NSDictionary *dict = @{@"peerID": peerId,
                                @"state" : [NSNumber numberWithInt:MCSessionStateConnected]
                                };
         [_delegate didConntectedWithManager:self status:dict];
     }
     
-    [_browser dismissViewControllerAnimated:YES completion:nil];
+    [browserViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 // Notifies delegate that the user taps the cancel button.
 - (void)browserViewControllerWasCancelled:(MCBrowserViewController *)browserViewController {
-    [_browser dismissViewControllerAnimated:YES completion:nil];
+    
+    [_delegate didDisconntectedWithManager:self status:nil];
+    
+    [browserViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -204,7 +233,10 @@
                 [_delegate didDisconntectedWithManager:self status:dict];
             }
             
-            [self stopPeer2PeerService];
+            if (IS_IPAD()) {
+                [self stopPeer2PeerService];
+            }
+            
         }
     }
 }
