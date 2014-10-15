@@ -841,18 +841,20 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="B49-kS-jFg" secondAttribute="trailing" constant="126" id="9qu-1T-2w5"/>
                                             <constraint firstItem="8oT-ys-Smg" firstAttribute="leading" secondItem="bam-Vp-2es" secondAttribute="leading" id="ATg-22-fF9"/>
+                                            <constraint firstItem="cp4-yL-H2M" firstAttribute="top" secondItem="AcE-89-QCJ" secondAttribute="bottom" constant="15" id="Gu8-WD-aO9"/>
                                             <constraint firstItem="pqQ-m7-c4H" firstAttribute="leading" secondItem="h9P-ok-0hM" secondAttribute="leading" constant="22" id="KRt-EV-XN7"/>
                                             <constraint firstItem="AcE-89-QCJ" firstAttribute="leading" secondItem="pqQ-m7-c4H" secondAttribute="leading" id="Lr1-ST-hhO"/>
-                                            <constraint firstAttribute="height" constant="400" id="RXL-xn-N46"/>
+                                            <constraint firstAttribute="height" constant="400" id="RXL-xn-N46">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="380"/>
+                                            </constraint>
                                             <constraint firstItem="8oT-ys-Smg" firstAttribute="leading" secondItem="h9P-ok-0hM" secondAttribute="leading" constant="20" id="VBA-yg-eYR"/>
+                                            <constraint firstItem="cp4-yL-H2M" firstAttribute="leading" secondItem="AcE-89-QCJ" secondAttribute="leading" id="VkO-Us-jyW"/>
                                             <constraint firstItem="B49-kS-jFg" firstAttribute="top" secondItem="bam-Vp-2es" secondAttribute="bottom" constant="46" id="Vr2-MG-Rsb"/>
-                                            <constraint firstItem="8oT-ys-Smg" firstAttribute="trailing" secondItem="cp4-yL-H2M" secondAttribute="trailing" id="bZ8-3x-B6S"/>
+                                            <constraint firstItem="bam-Vp-2es" firstAttribute="top" secondItem="cp4-yL-H2M" secondAttribute="bottom" constant="22" id="YpA-S7-5f6"/>
+                                            <constraint firstItem="cp4-yL-H2M" firstAttribute="trailing" secondItem="bam-Vp-2es" secondAttribute="trailing" id="azI-Ky-MUj"/>
                                             <constraint firstAttribute="bottom" secondItem="B49-kS-jFg" secondAttribute="bottom" constant="19" id="dbt-XR-cg0"/>
                                             <constraint firstAttribute="trailing" secondItem="AcE-89-QCJ" secondAttribute="trailing" constant="42" id="g3U-5T-Icd"/>
-                                            <constraint firstItem="cp4-yL-H2M" firstAttribute="top" secondItem="AcE-89-QCJ" secondAttribute="bottom" constant="20" id="hWM-3i-meT"/>
                                             <constraint firstItem="8oT-ys-Smg" firstAttribute="top" secondItem="h9P-ok-0hM" secondAttribute="top" id="kev-bk-sGW"/>
-                                            <constraint firstItem="AcE-89-QCJ" firstAttribute="leading" secondItem="cp4-yL-H2M" secondAttribute="leading" id="mj5-IH-Ccg"/>
-                                            <constraint firstItem="bam-Vp-2es" firstAttribute="top" secondItem="cp4-yL-H2M" secondAttribute="bottom" constant="22" id="nYU-Ja-T1p"/>
                                             <constraint firstItem="8oT-ys-Smg" firstAttribute="trailing" secondItem="pqQ-m7-c4H" secondAttribute="trailing" id="pOa-mJ-o45"/>
                                             <constraint firstItem="AcE-89-QCJ" firstAttribute="top" secondItem="pqQ-m7-c4H" secondAttribute="bottom" constant="4" id="puC-Wk-5BM"/>
                                             <constraint firstItem="B49-kS-jFg" firstAttribute="leading" secondItem="h9P-ok-0hM" secondAttribute="leading" constant="103" id="qTw-sz-lOk"/>
@@ -865,7 +867,6 @@
                                                 <exclude reference="RXL-xn-N46"/>
                                                 <exclude reference="ATg-22-fF9"/>
                                                 <exclude reference="VBA-yg-eYR"/>
-                                                <exclude reference="bZ8-3x-B6S"/>
                                                 <exclude reference="kev-bk-sGW"/>
                                                 <exclude reference="pOa-mJ-o45"/>
                                                 <exclude reference="vpk-Fy-Ist"/>
@@ -874,10 +875,11 @@
                                                 <exclude reference="rYO-LR-Rj0"/>
                                                 <exclude reference="Lr1-ST-hhO"/>
                                                 <exclude reference="g3U-5T-Icd"/>
-                                                <exclude reference="mj5-IH-Ccg"/>
                                                 <exclude reference="puC-Wk-5BM"/>
-                                                <exclude reference="hWM-3i-meT"/>
-                                                <exclude reference="nYU-Ja-T1p"/>
+                                                <exclude reference="Gu8-WD-aO9"/>
+                                                <exclude reference="VkO-Us-jyW"/>
+                                                <exclude reference="azI-Ky-MUj"/>
+                                                <exclude reference="YpA-S7-5f6"/>
                                                 <exclude reference="9qu-1T-2w5"/>
                                                 <exclude reference="Vr2-MG-Rsb"/>
                                                 <exclude reference="dbt-XR-cg0"/>
@@ -889,7 +891,6 @@
                                                 <include reference="RXL-xn-N46"/>
                                                 <include reference="ATg-22-fF9"/>
                                                 <include reference="VBA-yg-eYR"/>
-                                                <include reference="bZ8-3x-B6S"/>
                                                 <include reference="kev-bk-sGW"/>
                                                 <include reference="pOa-mJ-o45"/>
                                                 <include reference="vpk-Fy-Ist"/>
@@ -898,10 +899,11 @@
                                                 <include reference="rYO-LR-Rj0"/>
                                                 <include reference="Lr1-ST-hhO"/>
                                                 <include reference="g3U-5T-Icd"/>
-                                                <include reference="mj5-IH-Ccg"/>
                                                 <include reference="puC-Wk-5BM"/>
-                                                <include reference="hWM-3i-meT"/>
-                                                <include reference="nYU-Ja-T1p"/>
+                                                <include reference="Gu8-WD-aO9"/>
+                                                <include reference="VkO-Us-jyW"/>
+                                                <include reference="azI-Ky-MUj"/>
+                                                <include reference="YpA-S7-5f6"/>
                                                 <include reference="9qu-1T-2w5"/>
                                                 <include reference="Vr2-MG-Rsb"/>
                                                 <include reference="dbt-XR-cg0"/>
