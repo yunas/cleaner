@@ -44,7 +44,7 @@
 
 #pragma mark - Standard Life Cycle
 -(void) initContentView{
-//    [detailView setHidden:YES];
+    [detailView setHidden:YES];
     [lblHeader setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize]];
     [lblGateName setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblGateName.font.pointSize]];
     [lblStationNumber setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblStationNumber.font.pointSize]];
@@ -68,7 +68,7 @@
     // Do any additional setup after loading the view.
     self.partyTime = [[PLPartyTime alloc] initWithServiceType:self.gate];
     self.partyTime.delegate = self;
-//    [self joinParty:nil];
+    [self joinParty:nil];
     [self initContentView];
 }
 
