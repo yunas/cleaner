@@ -7,6 +7,8 @@
 //
 
 #import "PLPartyTime.h"
+#import "JobQueue.h"
+
 //#import "BackgroundTaskManager.h"
 static PLPartyTime *singletonInstance;
 
@@ -130,13 +132,13 @@ static PLPartyTime *singletonInstance;
     NSString *dateAsString = [formatter stringFromDate:date];
     
     if (displayName) {
-        self.displayName = [NSString stringWithFormat:@"%@-%@-%@",prefix,displayName,dateAsString];
+        displayName = [NSString stringWithFormat:@"%@-%@-%@",prefix,displayName,dateAsString];
     }
     else{
-        
-        self.displayName = [NSString stringWithFormat:@"%@-%@-%@",prefix,[UIDevice currentDevice].name,dateAsString];
+        displayName = [NSString stringWithFormat:@"%@-%@-%@",prefix,[UIDevice currentDevice].name,dateAsString];
     }
     
+    [self setDisplayName:displayName];
     
     [self joinRoom];
     
@@ -282,7 +284,15 @@ static PLPartyTime *singletonInstance;
   dispatch_async(dispatch_get_main_queue(), ^{
     if ([self.delegate respondsToSelector:@selector(partyTime:didReceiveData:fromPeer:)])
     {
-      [self.delegate partyTime:self didReceiveData:data fromPeer:peerID];
+
+        JobQueue *jobQue = [JobQueue sharedInstance];
+        BOOL isQueueEmpty = [jobQue isEmpty];
+        [jobQue enqueueJob:data forPeer:peerID];
+        if (isQueueEmpty) {
+            [self.delegate partyTime:self didReceiveData:nil fromPeer:nil];
+        }
+
+
     }
   });
 }

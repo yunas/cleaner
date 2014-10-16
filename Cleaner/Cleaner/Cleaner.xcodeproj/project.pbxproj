@@ -17,6 +17,7 @@
 		45760F1719EB9383004640D7 /* ClientDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760F1619EB9383004640D7 /* ClientDetailController.m */; };
 		45760F1D19EBB74B004640D7 /* CleanerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760F1C19EBB74B004640D7 /* CleanerDetailController.m */; };
 		458797C619EEAF8A0022968F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458797C419EEAF8A0022968F /* LaunchScreen.xib */; };
+		458FCD5F19EFF2F9000E6E66 /* JobQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 458FCD5E19EFF2F9000E6E66 /* JobQueue.m */; };
 		45C4A95819ED42C8001EB55C /* UIFont+Cleaner.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A95719ED42C8001EB55C /* UIFont+Cleaner.m */; };
 		45C4A95E19ED4418001EB55C /* Agenda-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C4A95A19ED4418001EB55C /* Agenda-Bold.ttf */; };
 		45C4A95F19ED4418001EB55C /* Agenda-BoldCond.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C4A95B19ED4418001EB55C /* Agenda-BoldCond.ttf */; };
@@ -57,6 +58,8 @@
 		45760F1B19EBB74B004640D7 /* CleanerDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CleanerDetailController.h; path = CleanerDetailController/CleanerDetailController.h; sourceTree = "<group>"; };
 		45760F1C19EBB74B004640D7 /* CleanerDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CleanerDetailController.m; path = CleanerDetailController/CleanerDetailController.m; sourceTree = "<group>"; };
 		458797C519EEAF8A0022968F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		458FCD5D19EFF2F9000E6E66 /* JobQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobQueue.h; path = Backend/JobQueue/JobQueue.h; sourceTree = "<group>"; };
+		458FCD5E19EFF2F9000E6E66 /* JobQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobQueue.m; path = Backend/JobQueue/JobQueue.m; sourceTree = "<group>"; };
 		45C4A95619ED42C8001EB55C /* UIFont+Cleaner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIFont+Cleaner.h"; path = "Backend/Extensions/UIFont+Cleaner.h"; sourceTree = "<group>"; };
 		45C4A95719ED42C8001EB55C /* UIFont+Cleaner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIFont+Cleaner.m"; path = "Backend/Extensions/UIFont+Cleaner.m"; sourceTree = "<group>"; };
 		45C4A95A19ED4418001EB55C /* Agenda-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agenda-Bold.ttf"; sourceTree = "<group>"; };
@@ -186,9 +189,19 @@
 			name = CleanerDetailController;
 			sourceTree = "<group>";
 		};
+		458FCD5C19EFF2A1000E6E66 /* JobQueue */ = {
+			isa = PBXGroup;
+			children = (
+				458FCD5D19EFF2F9000E6E66 /* JobQueue.h */,
+				458FCD5E19EFF2F9000E6E66 /* JobQueue.m */,
+			);
+			name = JobQueue;
+			sourceTree = "<group>";
+		};
 		45C4A95319ED40F3001EB55C /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				458FCD5C19EFF2A1000E6E66 /* JobQueue */,
 				45C4A96219ED5B3A001EB55C /* AttributedStrings */,
 				45C4A95419ED40F9001EB55C /* Extensions */,
 			);
@@ -339,6 +352,7 @@
 				45760EE419EB8477004640D7 /* ViewController.m in Sources */,
 				45760EE119EB8477004640D7 /* AppDelegate.m in Sources */,
 				45760F1719EB9383004640D7 /* ClientDetailController.m in Sources */,
+				458FCD5F19EFF2F9000E6E66 /* JobQueue.m in Sources */,
 				45C4A96519ED5B3A001EB55C /* NSMutableAttributedString+Attributes.m in Sources */,
 				45760EDE19EB8477004640D7 /* main.m in Sources */,
 				45760F1319EB86EE004640D7 /* PLPartyTime.m in Sources */,

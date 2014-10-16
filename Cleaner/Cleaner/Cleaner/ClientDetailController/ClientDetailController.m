@@ -30,6 +30,13 @@
 @implementation ClientDetailController
 
 #pragma mark - Actions
+-(void) resetAllViewsContent{
+    [tfPlate setText:@""];
+    [pickerStations selectRow:0 inComponent:0 animated:YES];
+    [pickerReasons selectRow:0 inComponent:0 animated:YES];
+    [tfCustomMsg setText:@""];
+
+}
 
 - (IBAction)sendData:(id)sender {
     if(self.partyTime.connectedPeers.count){
@@ -42,10 +49,21 @@
                                      };
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dictionary];
         
-        [self.partyTime sendData:data
-                         toPeers:@[ peerID ]
-                        withMode:MCSessionSendDataReliable
-                           error:nil];
+        BOOL success=  [self.partyTime sendData:data
+                                        toPeers:@[ peerID ]
+                                       withMode:MCSessionSendDataReliable
+                                          error:nil];
+        if (success) {
+            [self resetAllViewsContent];
+        }
+    }
+    else{
+       
+        [[[UIAlertView alloc]initWithTitle:@"Please wait"
+                                  message:@"Searching for Cleaners !"
+                                 delegate:nil
+                        cancelButtonTitle:@"OK"
+                        otherButtonTitles:nil, nil]show];
     }
 }
 

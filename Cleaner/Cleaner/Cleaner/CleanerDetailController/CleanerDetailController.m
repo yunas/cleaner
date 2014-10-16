@@ -9,7 +9,7 @@
 #import "CleanerDetailController.h"
 #import "PLPartyTime.h"
 #import "UIFont+Cleaner.h"
-
+#import "JobQueue.h"
 
 @interface CleanerDetailController () <PLPartyTimeDelegate>{
     
@@ -29,6 +29,10 @@
 
 - (IBAction)donePressed:(id)sender {
     [detailView setHidden:YES];
+    JobQueue *queue = [JobQueue sharedInstance];
+    [queue dequeueJob];
+    
+    [self performSelector:@selector(getNextJob) withObject:nil afterDelay:1.0];
 }
 
 #pragma mark - 
@@ -84,31 +88,34 @@
     [tfPlateNumber setText:dict[@"plateNumber"]];
     [lblStationNumber setText:dict[@"station"]];
     [lblReason setText:dict[@"reason"]];
-//    @"customMessage"
-
     [detailView setHidden:NO];
 }
 
 #pragma mark - Party Time Delegate
 
+-(void) getNextJob{
+    JobQueue *queue = [JobQueue sharedInstance];
+    if (![queue isEmpty]) {
+        NSDictionary *jobDict = [queue peek];
+
+        NSData *data = jobDict[@"data"];
+//        MCPeerID *peerId = jobDict[@"peerId"];
+        [self showJobData:data];
+    }
+}
+
+-(void) showJobData:(NSData*)data{
+
+    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    [self presentDetail:dict];
+}
+
+
 - (void)partyTime:(PLPartyTime *)partyTime
    didReceiveData:(NSData *)data
          fromPeer:(MCPeerID *)peerID
 {
-    
-    
-
-    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
-    NSString *str = [NSString stringWithFormat:@"%@,%@,%@",dict[@"plateNumber"],dict[@"station"],dict[@"reason"]];
-    
-    [[[UIAlertView alloc]initWithTitle:@"Message Received"
-                              message:str
-                             delegate:nil
-                    cancelButtonTitle:@"Ok"
-                    otherButtonTitles:nil, nil]show];
-
-    [self presentDetail:dict];
+    [self getNextJob];
     NSLog(@"Received some data!");
 }
 
