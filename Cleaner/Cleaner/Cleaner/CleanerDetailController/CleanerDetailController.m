@@ -18,7 +18,7 @@
     __weak IBOutlet UILabel *lblStationNumber;
     __weak IBOutlet UITextField *tfPlateNumber;
     __weak IBOutlet UILabel *lblReason;
-    __weak IBOutlet UIScrollView *detailView;
+    __weak IBOutlet UIView *detailView;
 }
 
 @property (nonatomic, strong) PLPartyTime *partyTime;
@@ -32,10 +32,6 @@
 }
 
 #pragma mark - 
-- (IBAction)joinParty:(id)sender
-{
-    [self.partyTime joinParty];
-}
 
 - (IBAction)leaveParty:(id)sender
 {
@@ -43,6 +39,13 @@
 }
 
 #pragma mark - Standard Life Cycle
+-(void) initMultiPeerConnectivity{
+    self.partyTime = [PLPartyTime instance];
+    self.partyTime.delegate = self;
+    [self.partyTime joinRoom:self.gate withName:nil];
+    
+}
+
 -(void) initContentView{
     [detailView setHidden:YES];
     [lblHeader setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize]];
@@ -51,25 +54,13 @@
     [lblReason setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblReason.font.pointSize]];
     [tfPlateNumber setFont:[UIFont AppFontWithType:FontType_Medium andSize:tfPlateNumber.font.pointSize]];
     
-    
-    for (UIView *view in [self.view subviews]) {
-        if ([view isKindOfClass:[UIScrollView class]]) {
-            NSLog(@"ScrollView.frame => %@",NSStringFromCGRect(view.frame));
-            [view setBackgroundColor:[UIColor orangeColor]];
-            UIScrollView *v = (UIScrollView*)view;
-            NSLog(@"ScrollView.Contentsize => %@",NSStringFromCGSize(v.contentSize));
-        }
-    }
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.partyTime = [[PLPartyTime alloc] initWithServiceType:self.gate];
-    self.partyTime.delegate = self;
-    [self joinParty:nil];
     [self initContentView];
+    [self initMultiPeerConnectivity];
 }
 
 - (void)didReceiveMemoryWarning {

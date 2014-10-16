@@ -50,10 +50,7 @@
 }
 
 #pragma mark -
-- (IBAction)joinParty:(id)sender
-{
-    [self.partyTime joinParty];
-}
+
 
 - (IBAction)leaveParty:(id)sender
 {
@@ -61,20 +58,15 @@
 }
 
 #pragma mark - Standard Life Cycle
+-(void) initMultiPeerConnectivity{
+    self.partyTime = [PLPartyTime instance];
+    self.partyTime.delegate = self;
+    [self.partyTime joinRoom:self.gate withName:nil];
+
+}
 
 -(void) initContentView{
 //    Cleaner-Ruf zu Gate absetzen
-    NSString *string = [[NSString alloc]initWithFormat:@"Cleaner-Ruf zu Gate %@ absetzen",self.gate];
-    NSMutableAttributedString *stringAtt = [[NSMutableAttributedString alloc]initWithString:string];
-    [stringAtt addColor:[UIColor colorWithRed:39/255.0 green:194.0/255.0 blue:225.0 alpha:1.0] substring:self.gate];
-    [stringAtt addFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize+40] substring:self.gate];
-
-    [lblHeader setAttributedText:stringAtt];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
     stationids = @[@"120",@"121",@"122",@"123",@"124",@"125",@"126",@"127",@"128",@"129",@"130"];
     reasonsArr = @[@"Reason 1",
                    @"Reason 2",
@@ -86,11 +78,20 @@
                    @"Reason 8",
                    @"Reason 9",
                    @"Reason 10"];
-    
-    self.partyTime = [[PLPartyTime alloc] initWithServiceType:self.gate];
-    self.partyTime.delegate = self;
-    [self joinParty:nil];
+
+    NSString *string = [[NSString alloc]initWithFormat:@"Cleaner-Ruf zu Gate %@ absetzen",self.gate];
+    NSMutableAttributedString *stringAtt = [[NSMutableAttributedString alloc]initWithString:string];
+    [stringAtt addColor:[UIColor colorWithRed:39/255.0 green:194.0/255.0 blue:225.0 alpha:1.0] substring:self.gate];
+    [stringAtt addFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize+40] substring:self.gate];
+
+    [lblHeader setAttributedText:stringAtt];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
     [self initContentView];
+    [self initMultiPeerConnectivity];
 
 }
 
@@ -128,14 +129,6 @@
     }
     return reasonsArr[row];
 }
-//- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component NS_AVAILABLE_IOS(6_0) // attributed title is favored if both methods are implemented
-//{
-//    
-//}
-
-//- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-//    
-//}
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     //TODO: whatsup !

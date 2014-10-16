@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="c0L-Gx-MG3">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -342,9 +343,6 @@
                                         <include reference="1vb-az-KNa"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="429" y="378" width="80" height="162"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="NxV-S7-OMi" id="ViR-4z-MOL"/>
                                     <outlet property="delegate" destination="NxV-S7-OMi" id="BMA-co-K97"/>
@@ -354,9 +352,6 @@
                                 <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
                                 <variation key="heightClass=regular" misplaced="YES">
                                     <rect key="frame" x="0.0" y="491" width="600" height="162"/>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="492" width="400" height="162"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="NxV-S7-OMi" id="FNA-Su-feV"/>
@@ -428,9 +423,6 @@
                                         <exclude reference="iNu-xi-AnS"/>
                                         <exclude reference="iWc-Q4-f1t"/>
                                     </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="58" y="418" width="287" height="82"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -787,7 +779,7 @@
                                                 </variation>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.54117647059999996" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="B49-kS-jFg" firstAttribute="centerX" secondItem="h9P-ok-0hM" secondAttribute="centerX" id="9Ph-UH-0eA"/>
                                             <constraint firstItem="8oT-ys-Smg" firstAttribute="leading" secondItem="bam-Vp-2es" secondAttribute="leading" id="ATg-22-fF9"/>
@@ -859,7 +851,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.87450980389999999" green="0.91372549020000005" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="h9P-ok-0hM" firstAttribute="top" secondItem="9a5-dU-z0c" secondAttribute="top" id="0YU-6y-POn"/>
                                     <constraint firstAttribute="trailing" secondItem="h9P-ok-0hM" secondAttribute="trailing" id="Gf9-ZH-W2f"/>
@@ -940,6 +932,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="detailView" destination="h9P-ok-0hM" id="8Au-ga-uPi"/>
                         <outlet property="lblGateName" destination="8oT-ys-Smg" id="fBU-YA-Acl"/>
                         <outlet property="lblHeader" destination="nhC-0b-21c" id="NXC-oY-EeO"/>
                         <outlet property="lblReason" destination="bam-Vp-2es" id="P7a-tV-dT0"/>

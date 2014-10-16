@@ -16,6 +16,7 @@
 //#endif
 
 
+
 @protocol PLPartyTimeDelegate;
 
 
@@ -66,6 +67,9 @@
 
 #pragma mark - Initialization
 
+
++ (PLPartyTime*)instance;
+
 /**
  Init method for this class.
  
@@ -114,8 +118,8 @@
  
     - (void)partyTime:(PLPartyTime *)partyTime peer:(MCPeerID *)peer changedState:(MCSessionState)state currentPeers:(NSArray *)currentPeers;
  */
-- (void)joinParty;
-
+//- (void)joinParty;
+-(void) joinRoom:(NSString *)roomName withName:(NSString *)displayName;
 /**
  Call this method stop accepting invitations from peers. You will not disconnect from the party, but will not allow incoming connections.
  

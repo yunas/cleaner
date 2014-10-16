@@ -7,9 +7,12 @@
 //
 
 #import "PLPartyTime.h"
+//#import "BackgroundTaskManager.h"
+static PLPartyTime *singletonInstance;
 
-
-@interface PLPartyTime () <MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate>
+@interface PLPartyTime () <MCSessionDelegate, MCNearbyServiceAdvertiserDelegate, MCNearbyServiceBrowserDelegate>{
+//    BackgroundTaskManager *bgTask;
+}
 
 // Public Properties
 @property (nonatomic, readwrite) BOOL connected;
@@ -26,7 +29,40 @@
 
 @implementation PLPartyTime
 
+#pragma mark - APP STATE CHANGE METHODS
+-(void)applicationEnterForeground{
+    
+}
+
+-(void)applicationEnterBackground{
+//    if ([[UserInfo instance] isLogin]) {
+//        CLLocationManager *locationManager = [LocationTracker sharedLocationManager];
+//        locationManager.delegate = self;
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+//        locationManager.distanceFilter = kCLDistanceFilterNone;
+//        [locationManager startUpdatingLocation];
+//        if([locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+//            [locationManager requestAlwaysAuthorization];
+//        }
+        //Use the BackgroundTaskManager to manage all the background Task
+//        bgTask = [BackgroundTaskManager sharedBackgroundTaskManager];
+//        [bgTask beginNewBackgroundTask];
+//    }
+}
+
+
 #pragma mark - Life Cycle
+
++ (PLPartyTime*)instance{
+    if(!singletonInstance)
+    {
+        singletonInstance=[[PLPartyTime alloc]init];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+
+    }
+    return singletonInstance;
+}
 
 - (instancetype)initWithServiceType:(NSString *)serviceType
 {
@@ -78,21 +114,34 @@
     }
 }
 
-- (void)joinParty
-{
-  // If we're already joined, then don't try again. This causes crashes.
+-(void) joinRoom:(NSString *)roomName withName:(NSString *)displayName{
+    
+    self.serviceType = roomName;
+    NSString *prefix = @"Cleaner";
+    if (IS_IPAD()) {
+        prefix = @"Client";
+    }
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"ddMMyyyy-HH:mm:ss"];
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    [formatter setTimeZone:timeZone];
+    NSString *dateAsString = [formatter stringFromDate:date];
+    
+    if (displayName) {
+        self.displayName = [NSString stringWithFormat:@"%@-%@-%@",prefix,displayName,dateAsString];
+    }
+    else{
+        
+        self.displayName = [NSString stringWithFormat:@"%@-%@-%@",prefix,[UIDevice currentDevice].name,dateAsString];
+    }
+    
+    
     [self joinRoom];
     
-//  if (!self.acceptingGuests)
-//  {
-//    // Simultaneously advertise and browse at the same time
-//    [self.advertiser startAdvertisingPeer];
-//    [self.browser startBrowsingForPeers];
-//    
-//    self.connected = YES;
-//    self.acceptingGuests = YES;
-//  }
 }
+
 
 - (void)stopAcceptingGuests
 {
