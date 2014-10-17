@@ -89,22 +89,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Cleaner/Cleaner/ClientDetailController/ClientDetailController.m"
-            timestampString = "435164894.926656"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "-initContentView"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Cleaner/Cleaner/Backend/AttributedStrings/NSMutableAttributedString+Attributes.m"
             timestampString = "435164933.719209"
             startingColumnNumber = "9223372036854775807"

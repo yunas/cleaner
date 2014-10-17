@@ -67,6 +67,10 @@
     }
 }
 
+- (IBAction)backAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark -
 
 
@@ -111,8 +115,8 @@
 
     NSString *string = [[NSString alloc]initWithFormat:@"Cleaner-Ruf zu Gate %@ absetzen",self.gate];
     NSMutableAttributedString *stringAtt = [[NSMutableAttributedString alloc]initWithString:string];
-    [stringAtt addColor:[UIColor colorWithRed:39/255.0 green:194.0/255.0 blue:225.0 alpha:1.0] substring:[NSString stringWithFormat:@"%@ ",self.gate]];
-    [stringAtt addFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize+40] substring:[NSString stringWithFormat:@"%@ ",self.gate]];
+//    [stringAtt addColor:[UIColor colorWithRed:39/255.0 green:194.0/255.0 blue:225.0 alpha:1.0] substring:[NSString stringWithFormat:@"%@ ",self.gate]];
+//    [stringAtt addFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize+40] substring:[NSString stringWithFormat:@"%@ ",self.gate]];
 
     [lblHeader setAttributedText:stringAtt];
 }
@@ -121,7 +125,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initContentView];
-    [self initMultiPeerConnectivity];
+   // [self initMultiPeerConnectivity];
 
 }
 
