@@ -19,7 +19,7 @@
     __weak IBOutlet UIPickerView *pickerReasons;
     __weak IBOutlet UITextField *tfCustomMsg;
     __weak IBOutlet UILabel *lblHeader;
-    NSArray *stationids ;
+    NSMutableArray *stationids ;
     NSArray *reasonsArr;
 }
 
@@ -85,22 +85,34 @@
 
 -(void) initContentView{
 //    Cleaner-Ruf zu Gate absetzen
-    stationids = @[@"120",@"121",@"122",@"123",@"124",@"125",@"126",@"127",@"128",@"129",@"130"];
-    reasonsArr = @[@"Reason 1",
-                   @"Reason 2",
-                   @"Reason 3",
-                   @"Reason 4",
-                   @"Reason 5",
-                   @"Reason 6",
-                   @"Reason 7",
-                   @"Reason 8",
-                   @"Reason 9",
-                   @"Reason 10"];
+    stationids = [NSMutableArray new];
+    int startX = 0;
+    int endX = 24;
+    
+    if([self.gate isEqualToString:@"B"]){
+        startX = 25;
+        endX = 47;
+    }
+    else if([self.gate isEqualToString:@"C"]){
+        startX = 48;
+        endX = 69;
+    }
+
+    for (int i = startX; i<=endX; i++) {
+        [stationids addObject:[NSString stringWithFormat:@"%d",i]];
+    }
+
+    
+    reasonsArr = @[@"Windschutzscheibe reinigen",
+                   @"Fussmatten ersetzen",
+                   @"Kratzer an Kotflügel",
+                   @"Rückspiegel ist lose",
+                   @"Reifendruck prüfen"];
 
     NSString *string = [[NSString alloc]initWithFormat:@"Cleaner-Ruf zu Gate %@ absetzen",self.gate];
     NSMutableAttributedString *stringAtt = [[NSMutableAttributedString alloc]initWithString:string];
-    [stringAtt addColor:[UIColor colorWithRed:39/255.0 green:194.0/255.0 blue:225.0 alpha:1.0] substring:self.gate];
-    [stringAtt addFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize+40] substring:self.gate];
+    [stringAtt addColor:[UIColor colorWithRed:39/255.0 green:194.0/255.0 blue:225.0 alpha:1.0] substring:[NSString stringWithFormat:@"%@ ",self.gate]];
+    [stringAtt addFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize+40] substring:[NSString stringWithFormat:@"%@ ",self.gate]];
 
     [lblHeader setAttributedText:stringAtt];
 }

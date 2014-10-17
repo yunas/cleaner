@@ -97,7 +97,6 @@
     JobQueue *queue = [JobQueue sharedInstance];
     if (![queue isEmpty]) {
         NSDictionary *jobDict = [queue peek];
-
         NSData *data = jobDict[@"data"];
 //        MCPeerID *peerId = jobDict[@"peerId"];
         [self showJobData:data];
