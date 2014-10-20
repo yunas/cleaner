@@ -19,6 +19,7 @@
     __weak IBOutlet UITextField *tfPlateNumber;
     __weak IBOutlet UILabel *lblReason;
     __weak IBOutlet UIView *detailView;
+    __weak IBOutlet UITextView *reasonDesc;
 }
 
 @property (nonatomic, strong) PLPartyTime *partyTime;
@@ -28,7 +29,10 @@
 @implementation CleanerDetailController
 
 - (IBAction)donePressed:(id)sender {
-    [detailView setHidden:YES];
+    [UIView animateWithDuration:0.5 animations:^{
+        [detailView setAlpha:0.0];
+    }];
+
     JobQueue *queue = [JobQueue sharedInstance];
     [queue dequeueJob];
     
@@ -44,6 +48,8 @@
 
 #pragma mark - Standard Life Cycle
 -(void) initMultiPeerConnectivity{
+ 
+    [detailView setAlpha:0.0];//set hidden
     self.partyTime = [PLPartyTime instance];
     self.partyTime.delegate = self;
     [self.partyTime joinRoom:self.gate withName:nil];
@@ -51,7 +57,7 @@
 }
 
 -(void) initContentView{
-    [detailView setHidden:YES];
+    
     [lblHeader setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize]];
     [lblGateName setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblGateName.font.pointSize]];
     [lblStationNumber setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblStationNumber.font.pointSize]];
@@ -88,7 +94,12 @@
     [tfPlateNumber setText:dict[@"plateNumber"]];
     [lblStationNumber setText:dict[@"station"]];
     [lblReason setText:dict[@"reason"]];
-    [detailView setHidden:NO];
+    [reasonDesc setText:dict[@"customMessage"]];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [detailView setAlpha:1.0];
+    }];
+
 }
 
 #pragma mark - Party Time Delegate

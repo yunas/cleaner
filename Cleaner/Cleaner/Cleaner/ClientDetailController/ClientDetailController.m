@@ -125,7 +125,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initContentView];
-   // [self initMultiPeerConnectivity];
+    [self initMultiPeerConnectivity];
 
 }
 
