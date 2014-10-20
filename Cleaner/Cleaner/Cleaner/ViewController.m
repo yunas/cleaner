@@ -15,6 +15,9 @@
 {
     
     __weak IBOutlet UILabel *lblHeader;
+    __weak IBOutlet UIButton *btnA;
+    __weak IBOutlet UIButton *btnB;
+    __weak IBOutlet UIButton *btnC;
 }
 
 @end
@@ -39,6 +42,16 @@
 
     UIFont *font = [lblHeader font];
     [lblHeader setFont:[UIFont AppFontWithType:FontType_Bold andSize:[font pointSize]]];
+    
+    float fontSize = 100.0;
+    if (IS_IPAD()) {
+        fontSize = 150.0;
+    }
+    
+    btnA.titleLabel.font = [UIFont AppFontWithType:FontType_Bold andSize:fontSize];
+    btnB.titleLabel.font = [UIFont AppFontWithType:FontType_Bold andSize:fontSize];
+    btnC.titleLabel.font = [UIFont AppFontWithType:FontType_Bold andSize:fontSize];
+
 
 }
 

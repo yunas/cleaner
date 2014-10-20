@@ -68,7 +68,14 @@
 }
 
 - (IBAction)backAction:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
+//    [UIView animateWithDuration:2.0 animations:^{
+//        self.view.alpha = 0.25;
+//    } completion:^(BOOL b){
+//        [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+//        self.view.alpha = 1;
+//    }];
 }
 
 #pragma mark -
@@ -208,6 +215,81 @@
 }
 
 
+#pragma mark - TEXT FIELD
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self animateTextField:textField up:YES];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self animateTextField:textField up:NO];
+}
+
+
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    float animatedDis = 0.0;
+    CGPoint temp = [textField.superview convertPoint:textField.frame.origin toView:nil];
+    UIInterfaceOrientation orientation =
+    [[UIApplication sharedApplication] statusBarOrientation];
+    if (orientation == UIInterfaceOrientationPortrait){
+        
+        if(up) {
+            int moveUpValue = temp.y+textField.frame.size.height;
+            animatedDis = 264-(1024-moveUpValue-5);
+        }
+    }
+    else if(orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        if(up) {
+            int moveUpValue = 1004-temp.y+textField.frame.size.height;
+            animatedDis = 264-(1004-moveUpValue-5);
+        }
+    }
+    else if(orientation == UIInterfaceOrientationLandscapeLeft) {
+        if(up) {
+            int moveUpValue = temp.x+textField.frame.size.height;
+            animatedDis = 352-(768-moveUpValue-5);
+        }
+    }
+    else
+    {
+        if(up) {
+            int moveUpValue = 768-temp.x+textField.frame.size.height;
+            animatedDis = 352-(768-moveUpValue-5);
+        }
+        
+    }
+    if(animatedDis>0)
+    {
+        const int movementDistance = animatedDis;
+        const float movementDuration = 0.3f;
+        int movement = (up ? -movementDistance : movementDistance);
+        [UIView beginAnimations: nil context: nil];
+        [UIView setAnimationBeginsFromCurrentState: YES];
+        [UIView setAnimationDuration: movementDuration];
+        if (orientation == UIInterfaceOrientationPortrait){
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+        }
+        else if(orientation == UIInterfaceOrientationPortraitUpsideDown) {
+            
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+        }
+        else if(orientation == UIInterfaceOrientationLandscapeLeft) {
+            
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+        }
+        else {
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+        }
+        
+        [UIView commitAnimations];
+    }
+}
 
 
 @end
