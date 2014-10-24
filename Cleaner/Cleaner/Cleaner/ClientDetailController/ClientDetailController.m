@@ -10,6 +10,11 @@
 #import "PLPartyTime.h"
 #import "NSMutableAttributedString+Attributes.h"
 #import "UIFont+Cleaner.h"
+#import "ProgressHUD.h"
+
+
+typedef void (^SucessBlock)(id response, BOOL status);
+typedef void(^FailureBlock) (NSError *error);
 
 
 @interface ClientDetailController ()<PLPartyTimeDelegate>{
@@ -21,6 +26,8 @@
     __weak IBOutlet UILabel *lblHeader;
     NSMutableArray *stationids ;
     NSArray *reasonsArr;
+    SucessBlock multiPeerConnection;
+    FailureBlock multiPeerConnectionFailure;
 }
 
 @property (nonatomic, strong) PLPartyTime *partyTime;
@@ -38,9 +45,18 @@
 
 }
 
-- (IBAction)sendData:(id)sender {
-    if(self.partyTime.connectedPeers.count){
-        MCPeerID *peerID = [self.partyTime.connectedPeers objectAtIndex:0];
+
+-(void) sendMessageRequestWithSuccess:(SucessBlock)messageSuccessBlock andFailed:(FailureBlock)messageFailureBlock{
+    MCPeerID *peerID = nil;
+    
+    if (self.partyTime.connectedPeers.count) {
+        NSPredicate *bPredicate = [NSPredicate predicateWithFormat:@"displayName contains[c] 'Cleaner-'"];
+        
+        NSArray *cleaners = [self.partyTime.connectedPeers filteredArrayUsingPredicate:bPredicate];
+        peerID = [cleaners lastObject];
+    }
+    
+    if(peerID){
         
         NSDictionary *dictionary = @{@"plateNumber":tfPlate.text,
                                      @"station":stationids[[pickerStations selectedRowInComponent:0]],
@@ -54,43 +70,106 @@
                                        withMode:MCSessionSendDataReliable
                                           error:nil];
         if (success) {
-            [self resetAllViewsContent];
+            messageSuccessBlock (@"Sent",YES);
+        }
+        else {
+            NSError *error = [NSError errorWithDomain:@"CLEANER-DEBUG" code:420 userInfo:@{@"message":@"Failed to send"}];
+            messageFailureBlock (error);
         }
     }
     else{
-       
-        [[[UIAlertView alloc]initWithTitle:@"Please wait"
-                                  message:@"Searching for Cleaners !"
-                                 delegate:nil
-                        cancelButtonTitle:@"OK"
-                        otherButtonTitles:nil, nil]show];
+
+        NSError *error = [NSError errorWithDomain:@"CLEANER-DEBUG" code:420 userInfo:@{@"message":@"Not connected to Cleaner"}];
+        messageFailureBlock (error);
     }
 }
 
+
+-(void) resetBlocks{
+
+    multiPeerConnection = nil;
+    multiPeerConnectionFailure = nil;
+
+}
+
+-(void) disconnectParty{
+    [self.partyTime leaveParty];
+
+//    multiPeerConnection = ^(id response, BOOL state){
+//      
+//        [[[UIAlertView alloc] initWithTitle:@"DC"
+//                                   message:@"Disconnected"
+//                                  delegate:nil
+//                         cancelButtonTitle:@"Ok"
+//                          otherButtonTitles:nil, nil]show];
+    [self performSelector:@selector(resetBlocks) withObject:nil afterDelay:0.5];
+//       
+//    };
+}
+
+
+-(void) messageSent{
+    
+    [ProgressHUD showSuccess:@"Sent" Interaction:YES];
+    
+    [self resetAllViewsContent];
+    [self.partyTime leaveParty];
+
+}
+
+- (IBAction)sendData:(id)sender {
+    
+    [ProgressHUD show:@"Connecting" Interaction:NO];
+    
+    [self initMultiPeerConnectivity:^(id response, BOOL status) {
+        [ProgressHUD show:@"Searching" Interaction:NO];
+        NSLog(@"%@",response);
+        
+        if (status) {//Connected
+            [self sendMessageRequestWithSuccess:^(id response, BOOL status) {
+                NSLog(@"%@",response);
+                [self performSelector:@selector(messageSent) withObject:nil afterDelay:0.5];
+
+            } andFailed:^(NSError *error) {
+            
+                [[[UIAlertView alloc]initWithTitle:@"Please wait"
+                                           message:error.userInfo[@"message"]
+                                          delegate:nil
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:nil, nil]show];
+                [self performSelector:@selector(disconnectParty) withObject:nil afterDelay:1.0];
+            }];
+
+        }
+    } failedToConnect:^(NSError *error) {
+        [[[UIAlertView alloc]initWithTitle:@"Please wait"
+                                   message:error.userInfo[@"message"]
+                                  delegate:nil
+                         cancelButtonTitle:@"OK"
+                         otherButtonTitles:nil, nil]show];
+        [self performSelector:@selector(disconnectParty) withObject:nil afterDelay:1.0];
+
+    }];
+    
+}
+
 - (IBAction)backAction:(id)sender {
+    [self.partyTime leaveParty];
     [self dismissViewControllerAnimated:NO completion:nil];
     
-//    [UIView animateWithDuration:2.0 animations:^{
-//        self.view.alpha = 0.25;
-//    } completion:^(BOOL b){
-//        [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
-//        self.view.alpha = 1;
-//    }];
 }
 
 #pragma mark -
 
 
-- (IBAction)leaveParty:(id)sender
-{
-    [self.partyTime leaveParty];
-}
-
 #pragma mark - Standard Life Cycle
--(void) initMultiPeerConnectivity{
+-(void) initMultiPeerConnectivity:(SucessBlock)success failedToConnect:(FailureBlock)failBlock{
+
     self.partyTime = [PLPartyTime instance];
     self.partyTime.delegate = self;
     [self.partyTime joinRoom:self.gate withName:nil];
+    multiPeerConnection = success;
+    multiPeerConnectionFailure = failBlock;
 
 }
 
@@ -126,19 +205,35 @@
 //    [stringAtt addFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize+40] substring:[NSString stringWithFormat:@"%@ ",self.gate]];
 
     [lblHeader setAttributedText:stringAtt];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(myKeyboardWillHideHandler:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initContentView];
-    [self initMultiPeerConnectivity];
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:self];
+}
+
+
+-(void) viewWillDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:self];
+    
+    [super viewWillDisappear:animated];
 }
 
 /*
@@ -182,6 +277,7 @@
          fromPeer:(MCPeerID *)peerID
 {
     NSLog(@"Received some data!");
+    
 }
 
 - (void)partyTime:(PLPartyTime *)partyTime
@@ -189,20 +285,27 @@
      changedState:(MCSessionState)state
      currentPeers:(NSArray *)currentPeers
 {
+    
     if (state == MCSessionStateConnected)
     {
         NSLog(@"Connected to %@", peer.displayName);
+        if (IS_IPAD()) {
+            NSLog(@"stopAcceptingGuests");
+            [partyTime stopAcceptingGuests];
+        }
+        multiPeerConnection(@"Connected",YES);
     }
     else if (state == MCSessionStateConnecting){
         NSLog(@"connecting to %@", peer.displayName);
+        //multiPeerConnection(@"Connecting",NO);
     }
     else
     {
         NSLog(@"Peer disconnected: %@", peer.displayName);
+        multiPeerConnection(@"Disconnected",NO);
     }
     
     NSLog(@"Current peers: %@", currentPeers);
-    
 }
 
 - (void)partyTime:(PLPartyTime *)partyTime failedToJoinParty:(NSError *)error
@@ -212,17 +315,39 @@
                                delegate:nil
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
+    
+    multiPeerConnectionFailure (error);
 }
 
 
 #pragma mark - TEXT FIELD
+- (void) myKeyboardWillHideHandler:(NSNotification *)notification {
+
+    if ([tfCustomMsg isFirstResponder]) {
+        [self animateTextField:tfCustomMsg up:NO];
+    }
+    
+}
 
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    if (textField.tag == 999) {
+        return;
+    }
     [self animateTextField:textField up:YES];
 }
 
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+    if (textField.tag != 999) {
+        [self animateTextField:textField up:NO];
+    }
+    [textField resignFirstResponder];
+    return YES;
+}
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
@@ -233,38 +358,38 @@
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
 {
-    float animatedDis = 0.0;
+    float animatedDis = -(textField.superview.frame.origin.y);
     CGPoint temp = [textField.superview convertPoint:textField.frame.origin toView:nil];
     UIInterfaceOrientation orientation =
     [[UIApplication sharedApplication] statusBarOrientation];
     if (orientation == UIInterfaceOrientationPortrait){
-        
+
+        int moveUpValue = temp.y+textField.frame.size.height;
         if(up) {
-            int moveUpValue = temp.y+textField.frame.size.height;
-            animatedDis = 264-(1024-moveUpValue-5);
+            animatedDis = 264-(1004-moveUpValue-35);
         }
     }
     else if(orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        int moveUpValue = 1004-temp.y+textField.frame.size.height;
         if(up) {
-            int moveUpValue = 1004-temp.y+textField.frame.size.height;
             animatedDis = 264-(1004-moveUpValue-5);
         }
     }
     else if(orientation == UIInterfaceOrientationLandscapeLeft) {
+        int moveUpValue = temp.x+textField.frame.size.height;
         if(up) {
-            int moveUpValue = temp.x+textField.frame.size.height;
             animatedDis = 352-(768-moveUpValue-5);
         }
     }
     else
     {
+        int moveUpValue = 768-temp.x+textField.frame.size.height;
         if(up) {
-            int moveUpValue = 768-temp.x+textField.frame.size.height;
             animatedDis = 352-(768-moveUpValue-5);
         }
         
     }
-    if(animatedDis>0)
+//    if(animatedDis>0)
     {
         const int movementDistance = animatedDis;
         const float movementDuration = 0.3f;

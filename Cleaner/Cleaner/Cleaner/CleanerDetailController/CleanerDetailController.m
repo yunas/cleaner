@@ -52,6 +52,7 @@
     [detailView setAlpha:0.0];//set hidden
     self.partyTime = [PLPartyTime instance];
     self.partyTime.delegate = self;
+    NSLog(@"Gate information => %@",self.gate);
     [self.partyTime joinRoom:self.gate withName:nil];
     
 }

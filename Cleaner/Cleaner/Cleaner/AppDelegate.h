@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+    UIBackgroundTaskIdentifier bgTask;
+    dispatch_block_t expirationHandler;
+    BOOL background;
+    BOOL jobExpired;
+}
 @property (strong, nonatomic) UIWindow *window;
 
 

@@ -8,6 +8,7 @@
 
 #import "PLPartyTime.h"
 #import "JobQueue.h"
+#import "LocalNotificationManager.h"
 
 //#import "BackgroundTaskManager.h"
 static PLPartyTime *singletonInstance;
@@ -32,7 +33,23 @@ static PLPartyTime *singletonInstance;
 @implementation PLPartyTime
 
 #pragma mark - APP STATE CHANGE METHODS
+
+-(void) stayAlive{
+
+    if(IS_IPAD())return;
+    
+    if (self.displayName)
+    {
+        [self.advertiser startAdvertisingPeer];
+        self.acceptingGuests = YES;
+        NSLog(@"Advertising");
+    }
+    
+}
+
 -(void)applicationEnterForeground{
+   
+    
     
 }
 
@@ -59,8 +76,8 @@ static PLPartyTime *singletonInstance;
     if(!singletonInstance)
     {
         singletonInstance=[[PLPartyTime alloc]init];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
 
     }
     return singletonInstance;
@@ -285,6 +302,21 @@ static PLPartyTime *singletonInstance;
     if ([self.delegate respondsToSelector:@selector(partyTime:didReceiveData:fromPeer:)])
     {
 
+//        NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        NSString *msg = [NSString stringWithFormat:@"Cleaner wird in Gate %@ benötigt. \nBitte kommen Sie schnellstmöglich.",self.serviceType];
+        [LocalNotificationManager generateNotificationWithText:msg after:0];
+        
+        
+        
+//        NSString *msg = [NSString stringWithFormat:@"plateNumber = %@ \n station = %@ \n reason = %@ \n ",dict[@"plateNumber"],dict[@"station"],dict[@"reason"]];
+//        
+//        [[[UIAlertView alloc]initWithTitle:@"Recieved"
+//                                   message:msg
+//                                  delegate:nil
+//                         cancelButtonTitle:@"Ok"
+//                         otherButtonTitles:nil, nil] show];
+
+        
         JobQueue *jobQue = [JobQueue sharedInstance];
         BOOL isQueueEmpty = [jobQue isEmpty];
         [jobQue enqueueJob:data forPeer:peerID];
@@ -337,6 +369,7 @@ didFinishReceivingResourceWithName:resourceName
 // Required because of an apple bug
 - (void)session:(MCSession *)session didReceiveCertificate:(NSArray *)certificate fromPeer:(MCPeerID *)peerID certificateHandler:(void(^)(BOOL accept))certificateHandler
 {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
   certificateHandler(YES);
 }
 
@@ -350,14 +383,23 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
   // Only accept invitations with IDs lower than the current host
   // If both people accept invitations, then connections are lost
   // However, this should always be the case since we only send invites in one direction
+    NSLog(@"%s",__PRETTY_FUNCTION__);
   if ([peerID.displayName compare:self.peerID.displayName] == NSOrderedDescending)
   {
+      if (IS_IPAD()) {
+          if ([peerID.displayName rangeOfString:@"Client-"].location != NSNotFound) {
+              invitationHandler(NO, self.session);
+              return ;
+          }
+      }
+      
     invitationHandler(YES, self.session);
   }
 }
 
 - (void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didNotStartAdvertisingPeer:(NSError *)error
 {
+    NSLog(@"%s",__PRETTY_FUNCTION__);
   [self.delegate partyTime:self failedToJoinParty:error];
 }
 
@@ -369,23 +411,34 @@ didReceiveInvitationFromPeer:(MCPeerID *)peerID
   // But only send invites one way
   // TODO: What if display names are the same?
   // TODO: Make timeout configurable
+    NSLog(@"%s",__PRETTY_FUNCTION__);
+    
   if ([peerID.displayName compare:self.peerID.displayName] == NSOrderedAscending)
   {
-    NSLog(@"Sending invite: Self: %@", self.peerID.displayName);
-    [browser invitePeer:peerID
-              toSession:self.session
-            withContext:nil
-                timeout:10];
+      if ([peerID.displayName rangeOfString:@"Client-"].location == NSNotFound) {
+          NSLog(@"Sending invite: Self: %@", self.peerID.displayName);
+          [browser invitePeer:peerID
+                    toSession:self.session
+                  withContext:nil
+                      timeout:10];
+      }
   }
 }
 
 - (void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID
 {
+        NSLog(@"%s",__PRETTY_FUNCTION__);
   // Ignore this. We don't need it.
+//        [[[UIAlertView alloc]initWithTitle:@"LOST PEER"
+//                                   message:peerID.displayName
+//                                  delegate:nil
+//                         cancelButtonTitle:@"Ok"
+//                         otherButtonTitles:nil, nil] show];
 }
 
 - (void)browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(NSError *)error
 {
+        NSLog(@"%s",__PRETTY_FUNCTION__);
   [self.delegate partyTime:self failedToJoinParty:error];
 }
 

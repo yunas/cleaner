@@ -6,12 +6,24 @@
 	<dict>
 		<key>Cleaner.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>DevCleaner.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>455D3A0D19FA6DDA0038E78F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>45760ED719EB8477004640D7</key>
 		<dict>
 			<key>primary</key>

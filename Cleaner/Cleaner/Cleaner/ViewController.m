@@ -10,6 +10,8 @@
 #import "CleanerDetailController.h"
 #import "ClientDetailController.h"
 #import "UIFont+Cleaner.h"
+#import "AppSettings.h"
+
 
 @interface ViewController ()
 {
@@ -80,6 +82,8 @@
         gate = @"C";
     }
     
+    
+    
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         ClientDetailController* clientDetailController = [segue destinationViewController];
         [clientDetailController setGate:gate];
@@ -87,6 +91,12 @@
     }
    else if ([[segue identifier] isEqualToString:@"showCleanerDetail"])
     {
+        AppSettings *appSettings = [AppSettings loadAppSettings];
+        
+        [appSettings setIsfirstLaunch:NO];
+        [appSettings setUserSelectedGate:[NSString stringWithFormat:@"%@",gate]];
+        [appSettings saveTheAppSetting];
+        
         CleanerDetailController* cleanerDetailController = [segue destinationViewController];
         [cleanerDetailController setGate:gate];
     }

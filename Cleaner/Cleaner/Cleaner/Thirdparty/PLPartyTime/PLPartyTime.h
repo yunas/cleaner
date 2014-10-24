@@ -62,6 +62,7 @@
 
 
 + (PLPartyTime*)instance;
+-(void) stayAlive;
 
 /**
  Init method for this class.

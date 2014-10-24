@@ -7,6 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		455D3A0B19FA61B50038E78F /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 455D3A0819FA61B50038E78F /* ProgressHUD.bundle */; };
+		455D3A0C19FA61B50038E78F /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 455D3A0A19FA61B50038E78F /* ProgressHUD.m */; };
+		455D3A0F19FA6DDA0038E78F /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65719F7DBD500E9A8EB /* LocalNotificationManager.m */; };
+		455D3A1019FA6DDA0038E78F /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 455D3A0A19FA61B50038E78F /* ProgressHUD.m */; };
+		455D3A1119FA6DDA0038E78F /* UIFont+Cleaner.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A95719ED42C8001EB55C /* UIFont+Cleaner.m */; };
+		455D3A1219FA6DDA0038E78F /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65F19F7ECB700E9A8EB /* AppSettings.m */; };
+		455D3A1319FA6DDA0038E78F /* CleanerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760F1C19EBB74B004640D7 /* CleanerDetailController.m */; };
+		455D3A1419FA6DDA0038E78F /* AJNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65B19F7E29300E9A8EB /* AJNotificationView.m */; };
+		455D3A1519FA6DDA0038E78F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760EE319EB8477004640D7 /* ViewController.m */; };
+		455D3A1619FA6DDA0038E78F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760EE019EB8477004640D7 /* AppDelegate.m */; };
+		455D3A1719FA6DDA0038E78F /* ClientDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760F1619EB9383004640D7 /* ClientDetailController.m */; };
+		455D3A1819FA6DDA0038E78F /* JobQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 458FCD5E19EFF2F9000E6E66 /* JobQueue.m */; };
+		455D3A1919FA6DDA0038E78F /* NSMutableAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A96419ED5B3A001EB55C /* NSMutableAttributedString+Attributes.m */; };
+		455D3A1A19FA6DDA0038E78F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760EDD19EB8477004640D7 /* main.m */; };
+		455D3A1B19FA6DDA0038E78F /* PLPartyTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760F1219EB86EE004640D7 /* PLPartyTime.m */; };
+		455D3A1E19FA6DDA0038E78F /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 455D3A0819FA61B50038E78F /* ProgressHUD.bundle */; };
+		455D3A1F19FA6DDA0038E78F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45760EE519EB8477004640D7 /* Main.storyboard */; };
+		455D3A2019FA6DDA0038E78F /* Agenda-MediumCond.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C4A95D19ED4418001EB55C /* Agenda-MediumCond.ttf */; };
+		455D3A2119FA6DDA0038E78F /* Agenda-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C4A95C19ED4418001EB55C /* Agenda-Medium.ttf */; };
+		455D3A2219FA6DDA0038E78F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458797C419EEAF8A0022968F /* LaunchScreen.xib */; };
+		455D3A2319FA6DDA0038E78F /* Agenda-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C4A95A19ED4418001EB55C /* Agenda-Bold.ttf */; };
+		455D3A2419FA6DDA0038E78F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45760EE819EB8477004640D7 /* Images.xcassets */; };
+		455D3A2519FA6DDA0038E78F /* Agenda-BoldCond.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C4A95B19ED4418001EB55C /* Agenda-BoldCond.ttf */; };
 		45760EDE19EB8477004640D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760EDD19EB8477004640D7 /* main.m */; };
 		45760EE119EB8477004640D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760EE019EB8477004640D7 /* AppDelegate.m */; };
 		45760EE419EB8477004640D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45760EE319EB8477004640D7 /* ViewController.m */; };
@@ -24,6 +47,9 @@
 		45C4A96019ED4418001EB55C /* Agenda-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C4A95C19ED4418001EB55C /* Agenda-Medium.ttf */; };
 		45C4A96119ED4418001EB55C /* Agenda-MediumCond.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45C4A95D19ED4418001EB55C /* Agenda-MediumCond.ttf */; };
 		45C4A96519ED5B3A001EB55C /* NSMutableAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C4A96419ED5B3A001EB55C /* NSMutableAttributedString+Attributes.m */; };
+		45E3F65819F7DBD500E9A8EB /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65719F7DBD500E9A8EB /* LocalNotificationManager.m */; };
+		45E3F65C19F7E29300E9A8EB /* AJNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65B19F7E29300E9A8EB /* AJNotificationView.m */; };
+		45E3F66019F7ECB700E9A8EB /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65F19F7ECB700E9A8EB /* AppSettings.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +63,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		455D3A0819FA61B50038E78F /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		455D3A0919FA61B50038E78F /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		455D3A0A19FA61B50038E78F /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		455D3A2919FA6DDA0038E78F /* Cleaner copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cleaner copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		455D3A2A19FA6DDA0038E78F /* Cleaner copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Cleaner copy-Info.plist"; path = "/Users/air/yunas-air/iPhoneProjects/COEUS/MetaDesign/Cleaner/Cleaner/Cleaner/Cleaner copy-Info.plist"; sourceTree = "<absolute>"; };
 		45760ED819EB8477004640D7 /* Cleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45760EDC19EB8477004640D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45760EDD19EB8477004640D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,9 +99,22 @@
 		45C4A95D19ED4418001EB55C /* Agenda-MediumCond.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agenda-MediumCond.ttf"; sourceTree = "<group>"; };
 		45C4A96319ED5B3A001EB55C /* NSMutableAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Attributes.h"; sourceTree = "<group>"; };
 		45C4A96419ED5B3A001EB55C /* NSMutableAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Attributes.m"; sourceTree = "<group>"; };
+		45E3F65619F7DBD500E9A8EB /* LocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalNotificationManager.h; path = Backend/LocalNotificationManager/LocalNotificationManager.h; sourceTree = "<group>"; };
+		45E3F65719F7DBD500E9A8EB /* LocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocalNotificationManager.m; path = Backend/LocalNotificationManager/LocalNotificationManager.m; sourceTree = "<group>"; };
+		45E3F65A19F7E29300E9A8EB /* AJNotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNotificationView.h; sourceTree = "<group>"; };
+		45E3F65B19F7E29300E9A8EB /* AJNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNotificationView.m; sourceTree = "<group>"; };
+		45E3F65E19F7ECB700E9A8EB /* AppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettings.h; sourceTree = "<group>"; };
+		45E3F65F19F7ECB700E9A8EB /* AppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettings.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		455D3A1C19FA6DDA0038E78F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45760ED519EB8477004640D7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -88,12 +132,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		455D3A0719FA61B50038E78F /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				455D3A0819FA61B50038E78F /* ProgressHUD.bundle */,
+				455D3A0919FA61B50038E78F /* ProgressHUD.h */,
+				455D3A0A19FA61B50038E78F /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		45760ECF19EB8477004640D7 = {
 			isa = PBXGroup;
 			children = (
 				45760EDA19EB8477004640D7 /* Cleaner */,
 				45760EF419EB8477004640D7 /* CleanerTests */,
 				45760ED919EB8477004640D7 /* Products */,
+				455D3A2A19FA6DDA0038E78F /* Cleaner copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +157,7 @@
 			children = (
 				45760ED819EB8477004640D7 /* Cleaner.app */,
 				45760EF119EB8477004640D7 /* CleanerTests.xctest */,
+				455D3A2919FA6DDA0038E78F /* Cleaner copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +213,8 @@
 		45760F0F19EB86EE004640D7 /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				455D3A0719FA61B50038E78F /* ProgressHUD */,
+				45E3F65919F7E29300E9A8EB /* AJNotificationView */,
 				45760F1019EB86EE004640D7 /* PLPartyTime */,
 			);
 			path = Thirdparty;
@@ -201,6 +259,8 @@
 		45C4A95319ED40F3001EB55C /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				45E3F65D19F7ECB700E9A8EB /* AppSettings */,
+				45E3F65519F7DBAF00E9A8EB /* LocalNotificationManager */,
 				458FCD5C19EFF2A1000E6E66 /* JobQueue */,
 				45C4A96219ED5B3A001EB55C /* AttributedStrings */,
 				45C4A95419ED40F9001EB55C /* Extensions */,
@@ -238,9 +298,54 @@
 			path = Backend/AttributedStrings;
 			sourceTree = "<group>";
 		};
+		45E3F65519F7DBAF00E9A8EB /* LocalNotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				45E3F65619F7DBD500E9A8EB /* LocalNotificationManager.h */,
+				45E3F65719F7DBD500E9A8EB /* LocalNotificationManager.m */,
+			);
+			name = LocalNotificationManager;
+			sourceTree = "<group>";
+		};
+		45E3F65919F7E29300E9A8EB /* AJNotificationView */ = {
+			isa = PBXGroup;
+			children = (
+				45E3F65A19F7E29300E9A8EB /* AJNotificationView.h */,
+				45E3F65B19F7E29300E9A8EB /* AJNotificationView.m */,
+			);
+			path = AJNotificationView;
+			sourceTree = "<group>";
+		};
+		45E3F65D19F7ECB700E9A8EB /* AppSettings */ = {
+			isa = PBXGroup;
+			children = (
+				45E3F65E19F7ECB700E9A8EB /* AppSettings.h */,
+				45E3F65F19F7ECB700E9A8EB /* AppSettings.m */,
+			);
+			name = AppSettings;
+			path = Backend/AppSettings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		455D3A0D19FA6DDA0038E78F /* DevCleaner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 455D3A2619FA6DDA0038E78F /* Build configuration list for PBXNativeTarget "DevCleaner" */;
+			buildPhases = (
+				455D3A0E19FA6DDA0038E78F /* Sources */,
+				455D3A1C19FA6DDA0038E78F /* Frameworks */,
+				455D3A1D19FA6DDA0038E78F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DevCleaner;
+			productName = Cleaner;
+			productReference = 455D3A2919FA6DDA0038E78F /* Cleaner copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 		45760ED719EB8477004640D7 /* Cleaner */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45760EFB19EB8477004640D7 /* Build configuration list for PBXNativeTarget "Cleaner" */;
@@ -314,15 +419,32 @@
 			targets = (
 				45760ED719EB8477004640D7 /* Cleaner */,
 				45760EF019EB8477004640D7 /* CleanerTests */,
+				455D3A0D19FA6DDA0038E78F /* DevCleaner */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		455D3A1D19FA6DDA0038E78F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455D3A1E19FA6DDA0038E78F /* ProgressHUD.bundle in Resources */,
+				455D3A1F19FA6DDA0038E78F /* Main.storyboard in Resources */,
+				455D3A2019FA6DDA0038E78F /* Agenda-MediumCond.ttf in Resources */,
+				455D3A2119FA6DDA0038E78F /* Agenda-Medium.ttf in Resources */,
+				455D3A2219FA6DDA0038E78F /* LaunchScreen.xib in Resources */,
+				455D3A2319FA6DDA0038E78F /* Agenda-Bold.ttf in Resources */,
+				455D3A2419FA6DDA0038E78F /* Images.xcassets in Resources */,
+				455D3A2519FA6DDA0038E78F /* Agenda-BoldCond.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45760ED619EB8477004640D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				455D3A0B19FA61B50038E78F /* ProgressHUD.bundle in Resources */,
 				45760EE719EB8477004640D7 /* Main.storyboard in Resources */,
 				45C4A96119ED4418001EB55C /* Agenda-MediumCond.ttf in Resources */,
 				45C4A96019ED4418001EB55C /* Agenda-Medium.ttf in Resources */,
@@ -343,12 +465,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		455D3A0E19FA6DDA0038E78F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				455D3A0F19FA6DDA0038E78F /* LocalNotificationManager.m in Sources */,
+				455D3A1019FA6DDA0038E78F /* ProgressHUD.m in Sources */,
+				455D3A1119FA6DDA0038E78F /* UIFont+Cleaner.m in Sources */,
+				455D3A1219FA6DDA0038E78F /* AppSettings.m in Sources */,
+				455D3A1319FA6DDA0038E78F /* CleanerDetailController.m in Sources */,
+				455D3A1419FA6DDA0038E78F /* AJNotificationView.m in Sources */,
+				455D3A1519FA6DDA0038E78F /* ViewController.m in Sources */,
+				455D3A1619FA6DDA0038E78F /* AppDelegate.m in Sources */,
+				455D3A1719FA6DDA0038E78F /* ClientDetailController.m in Sources */,
+				455D3A1819FA6DDA0038E78F /* JobQueue.m in Sources */,
+				455D3A1919FA6DDA0038E78F /* NSMutableAttributedString+Attributes.m in Sources */,
+				455D3A1A19FA6DDA0038E78F /* main.m in Sources */,
+				455D3A1B19FA6DDA0038E78F /* PLPartyTime.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45760ED419EB8477004640D7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45E3F65819F7DBD500E9A8EB /* LocalNotificationManager.m in Sources */,
+				455D3A0C19FA61B50038E78F /* ProgressHUD.m in Sources */,
 				45C4A95819ED42C8001EB55C /* UIFont+Cleaner.m in Sources */,
+				45E3F66019F7ECB700E9A8EB /* AppSettings.m in Sources */,
 				45760F1D19EBB74B004640D7 /* CleanerDetailController.m in Sources */,
+				45E3F65C19F7E29300E9A8EB /* AJNotificationView.m in Sources */,
 				45760EE419EB8477004640D7 /* ViewController.m in Sources */,
 				45760EE119EB8477004640D7 /* AppDelegate.m in Sources */,
 				45760F1719EB9383004640D7 /* ClientDetailController.m in Sources */,
@@ -397,6 +543,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		455D3A2719FA6DDA0038E78F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "Cleaner copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Cleaner copy";
+			};
+			name = Debug;
+		};
+		455D3A2819FA6DDA0038E78F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = "Cleaner copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "Cleaner copy";
+			};
+			name = Release;
+		};
 		45760EF919EB8477004640D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -414,7 +584,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: MetaDesign AG";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yunas qazi (6VMDJ6GATE)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -435,7 +605,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "9f41fabd-7a6c-4206-afe4-01349648aaff";
+				PROVISIONING_PROFILE = "39af6a4f-571c-4e92-aaf2-ba38c3648ca6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,7 +628,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: MetaDesign AG";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yunas qazi (6VMDJ6GATE)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -472,7 +642,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "9f41fabd-7a6c-4206-afe4-01349648aaff";
+				PROVISIONING_PROFILE = "39af6a4f-571c-4e92-aaf2-ba38c3648ca6";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -484,10 +654,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MetaDesign AG";
 				INFOPLIST_FILE = Cleaner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9f41fabd-7a6c-4206-afe4-01349648aaff";
 			};
 			name = Debug;
 		};
@@ -496,10 +668,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MetaDesign AG";
 				INFOPLIST_FILE = Cleaner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9f41fabd-7a6c-4206-afe4-01349648aaff";
 			};
 			name = Release;
 		};
@@ -540,6 +714,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		455D3A2619FA6DDA0038E78F /* Build configuration list for PBXNativeTarget "DevCleaner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				455D3A2719FA6DDA0038E78F /* Debug */,
+				455D3A2819FA6DDA0038E78F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		45760ED319EB8477004640D7 /* Build configuration list for PBXProject "Cleaner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
