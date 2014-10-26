@@ -13,8 +13,9 @@
 #import "ProgressHUD.h"
 #import "AJNotificationView.h"
 
+
 #define kMaxCleanersCount 2
-#define kMaxBrowseTimeOut 10
+#define kMaxBrowseTimeOut 5
 
 typedef void (^SucessBlock)(id response, BOOL status);
 typedef void(^FailureBlock) (NSError *error);
@@ -129,7 +130,7 @@ typedef void(^FailureBlock) (NSError *error);
 #pragma mark - Standard Life Cycle
 -(void) initMultiPeerConnectivity
 {
-    [ProgressHUD show:@"Connecting" Interaction:YES];
+    [ProgressHUD show:@"Connecting" Interaction:NO];
     self.partyTime = [PLPartyTime instance];
     self.partyTime.delegate = self;
     [self.partyTime joinRoom:self.gate withName:nil];
@@ -288,6 +289,13 @@ typedef void(^FailureBlock) (NSError *error);
 
 
 #pragma mark - TEXT FIELD
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+
 - (void) myKeyboardWillHideHandler:(NSNotification *)notification {
 
     if ([tfCustomMsg isFirstResponder]) {

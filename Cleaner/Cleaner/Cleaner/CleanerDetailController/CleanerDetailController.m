@@ -10,6 +10,7 @@
 #import "PLPartyTime.h"
 #import "UIFont+Cleaner.h"
 #import "JobQueue.h"
+#import "UIAlertView+Blocks.h"
 
 @interface CleanerDetailController () <PLPartyTimeDelegate>{
     
@@ -32,13 +33,56 @@
     [UIView animateWithDuration:0.5 animations:^{
         [detailView setAlpha:0.0];
     }];
-
+    
     JobQueue *queue = [JobQueue sharedInstance];
     [queue dequeueJob];
-    
     [self performSelector:@selector(getNextJob) withObject:nil afterDelay:1.0];
+
+    //TODO: Record or hit api
+}
+- (IBAction)trashOneJob:(id)sender {
+
+    [[[UIAlertView alloc] initWithTitle:@"CleanerRuf"
+                                message:@"Wollen Sie wirklich die Aufgabe übergehen?"
+                       cancelButtonItem:[RIButtonItem itemWithLabel:@"Ja" action:^{
+
+        [UIView animateWithDuration:0.5 animations:^{
+            [detailView setAlpha:0.0];
+        }];
+        
+        JobQueue *queue = [JobQueue sharedInstance];
+        [queue dequeueJob];
+        [self performSelector:@selector(getNextJob) withObject:nil afterDelay:1.0];
+
+    }]
+                       otherButtonItems:[RIButtonItem itemWithLabel:@"Nein" action:^{
+        
+    }], nil] show];
+
 }
 
+- (IBAction)trashAllJobs:(id)sender {
+
+    [[[UIAlertView alloc] initWithTitle:@"CleanerRuf"
+                                message:@"Wollen Sie wirklich ALLE Aufgaben übergehen?"
+                       cancelButtonItem:[RIButtonItem itemWithLabel:@"Ja" action:^{
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            [detailView setAlpha:0.0];
+        }];
+        
+        JobQueue *queue = [JobQueue sharedInstance];
+        [queue emptyQueue];
+        
+    }]
+                       otherButtonItems:[RIButtonItem itemWithLabel:@"Nein" action:^{
+        
+    }], nil] show];
+
+    
+    
+    
+}
 #pragma mark - 
 
 - (IBAction)leaveParty:(id)sender

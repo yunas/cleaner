@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45201A0B19FDB79F008F19EA /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45201A0619FDB79F008F19EA /* RIButtonItem.m */; };
+		45201A0C19FDB79F008F19EA /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45201A0619FDB79F008F19EA /* RIButtonItem.m */; };
+		45201A0D19FDB79F008F19EA /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 45201A0819FDB79F008F19EA /* UIActionSheet+Blocks.m */; };
+		45201A0E19FDB79F008F19EA /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 45201A0819FDB79F008F19EA /* UIActionSheet+Blocks.m */; };
+		45201A0F19FDB79F008F19EA /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 45201A0A19FDB79F008F19EA /* UIAlertView+Blocks.m */; };
+		45201A1019FDB79F008F19EA /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 45201A0A19FDB79F008F19EA /* UIAlertView+Blocks.m */; };
 		455D3A0B19FA61B50038E78F /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 455D3A0819FA61B50038E78F /* ProgressHUD.bundle */; };
 		455D3A0C19FA61B50038E78F /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 455D3A0A19FA61B50038E78F /* ProgressHUD.m */; };
 		455D3A0F19FA6DDA0038E78F /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65719F7DBD500E9A8EB /* LocalNotificationManager.m */; };
@@ -63,6 +69,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45201A0519FDB79F008F19EA /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
+		45201A0619FDB79F008F19EA /* RIButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIButtonItem.m; sourceTree = "<group>"; };
+		45201A0719FDB79F008F19EA /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
+		45201A0819FDB79F008F19EA /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
+		45201A0919FDB79F008F19EA /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		45201A0A19FDB79F008F19EA /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		455D3A0819FA61B50038E78F /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		455D3A0919FA61B50038E78F /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		455D3A0A19FA61B50038E78F /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
@@ -132,6 +144,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45201A0419FDB79F008F19EA /* BlockAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				45201A0519FDB79F008F19EA /* RIButtonItem.h */,
+				45201A0619FDB79F008F19EA /* RIButtonItem.m */,
+				45201A0719FDB79F008F19EA /* UIActionSheet+Blocks.h */,
+				45201A0819FDB79F008F19EA /* UIActionSheet+Blocks.m */,
+				45201A0919FDB79F008F19EA /* UIAlertView+Blocks.h */,
+				45201A0A19FDB79F008F19EA /* UIAlertView+Blocks.m */,
+			);
+			path = BlockAlertView;
+			sourceTree = "<group>";
+		};
 		455D3A0719FA61B50038E78F /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +238,7 @@
 		45760F0F19EB86EE004640D7 /* Thirdparty */ = {
 			isa = PBXGroup;
 			children = (
+				45201A0419FDB79F008F19EA /* BlockAlertView */,
 				455D3A0719FA61B50038E78F /* ProgressHUD */,
 				45E3F65919F7E29300E9A8EB /* AJNotificationView */,
 				45760F1019EB86EE004640D7 /* PLPartyTime */,
@@ -472,15 +498,18 @@
 				455D3A0F19FA6DDA0038E78F /* LocalNotificationManager.m in Sources */,
 				455D3A1019FA6DDA0038E78F /* ProgressHUD.m in Sources */,
 				455D3A1119FA6DDA0038E78F /* UIFont+Cleaner.m in Sources */,
+				45201A0C19FDB79F008F19EA /* RIButtonItem.m in Sources */,
 				455D3A1219FA6DDA0038E78F /* AppSettings.m in Sources */,
 				455D3A1319FA6DDA0038E78F /* CleanerDetailController.m in Sources */,
 				455D3A1419FA6DDA0038E78F /* AJNotificationView.m in Sources */,
 				455D3A1519FA6DDA0038E78F /* ViewController.m in Sources */,
 				455D3A1619FA6DDA0038E78F /* AppDelegate.m in Sources */,
+				45201A1019FDB79F008F19EA /* UIAlertView+Blocks.m in Sources */,
 				455D3A1719FA6DDA0038E78F /* ClientDetailController.m in Sources */,
 				455D3A1819FA6DDA0038E78F /* JobQueue.m in Sources */,
 				455D3A1919FA6DDA0038E78F /* NSMutableAttributedString+Attributes.m in Sources */,
 				455D3A1A19FA6DDA0038E78F /* main.m in Sources */,
+				45201A0E19FDB79F008F19EA /* UIActionSheet+Blocks.m in Sources */,
 				455D3A1B19FA6DDA0038E78F /* PLPartyTime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,15 +521,18 @@
 				45E3F65819F7DBD500E9A8EB /* LocalNotificationManager.m in Sources */,
 				455D3A0C19FA61B50038E78F /* ProgressHUD.m in Sources */,
 				45C4A95819ED42C8001EB55C /* UIFont+Cleaner.m in Sources */,
+				45201A0B19FDB79F008F19EA /* RIButtonItem.m in Sources */,
 				45E3F66019F7ECB700E9A8EB /* AppSettings.m in Sources */,
 				45760F1D19EBB74B004640D7 /* CleanerDetailController.m in Sources */,
 				45E3F65C19F7E29300E9A8EB /* AJNotificationView.m in Sources */,
 				45760EE419EB8477004640D7 /* ViewController.m in Sources */,
 				45760EE119EB8477004640D7 /* AppDelegate.m in Sources */,
+				45201A0F19FDB79F008F19EA /* UIAlertView+Blocks.m in Sources */,
 				45760F1719EB9383004640D7 /* ClientDetailController.m in Sources */,
 				458FCD5F19EFF2F9000E6E66 /* JobQueue.m in Sources */,
 				45C4A96519ED5B3A001EB55C /* NSMutableAttributedString+Attributes.m in Sources */,
 				45760EDE19EB8477004640D7 /* main.m in Sources */,
+				45201A0D19FDB79F008F19EA /* UIActionSheet+Blocks.m in Sources */,
 				45760F1319EB86EE004640D7 /* PLPartyTime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -66,5 +66,9 @@ static JobQueue *singletonInstance;
     return true;
 }
 
+-(void) emptyQueue{
+    [jobsArray removeAllObjects];
+}
+
 
 @end

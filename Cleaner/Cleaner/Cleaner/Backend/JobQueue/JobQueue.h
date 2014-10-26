@@ -18,6 +18,7 @@
 -(NSDictionary*) dequeueJob;
 -(NSDictionary*) peek;
 -(BOOL) isEmpty;
+-(void) emptyQueue;
 
 
 @end

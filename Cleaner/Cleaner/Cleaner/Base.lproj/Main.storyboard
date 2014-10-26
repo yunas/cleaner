@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="c0L-Gx-MG3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="c0L-Gx-MG3">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -733,7 +733,8 @@ CLEANER-RUF</string>
                                         <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="36" y="237" width="362" height="43"/>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="74" y="451" width="264" height="54"/>
                                             <mask key="constraints">
                                                 <include reference="vqs-Dv-g9L"/>
                                                 <include reference="y4W-ap-wM9"/>
@@ -771,22 +772,64 @@ CLEANER-RUF</string>
                                                     <action selector="donePressed:" destination="Cqw-4y-rj5" eventType="touchUpInside" id="6Vz-03-B4x"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJG-2Y-kYD">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <state key="normal" image="trash1">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="trashOneJob:" destination="Cqw-4y-rj5" eventType="touchUpInside" id="HML-dp-BIg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bh-1I-d7g">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <state key="normal" image="trashAll">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="trashAllJobs:" destination="Cqw-4y-rj5" eventType="touchUpInside" id="3jZ-ll-Kgu"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="centerX" secondItem="1Vk-I2-6Yx" secondAttribute="centerX" constant="7" id="U8O-eH-QB6"/>
+                                            <constraint firstItem="1Vk-I2-6Yx" firstAttribute="leading" relation="lessThanOrEqual" secondItem="DJG-2Y-kYD" secondAttribute="trailing" constant="60" id="Un6-l2-I1K"/>
+                                            <constraint firstItem="8bh-1I-d7g" firstAttribute="top" secondItem="M1z-Or-hKY" secondAttribute="top" constant="25" id="cYE-ut-rrR"/>
+                                            <constraint firstItem="DJG-2Y-kYD" firstAttribute="leading" secondItem="M1z-Or-hKY" secondAttribute="leading" constant="40" id="gpj-J3-wf6"/>
+                                            <constraint firstItem="DJG-2Y-kYD" firstAttribute="top" secondItem="M1z-Or-hKY" secondAttribute="top" constant="25" id="jh2-kR-vBR"/>
                                             <constraint firstItem="1Vk-I2-6Yx" firstAttribute="top" secondItem="M1z-Or-hKY" secondAttribute="top" constant="20" id="jtL-Sk-tAE"/>
+                                            <constraint firstItem="8bh-1I-d7g" firstAttribute="leading" secondItem="1Vk-I2-6Yx" secondAttribute="trailing" constant="42" id="lGK-xP-Nlt"/>
                                         </constraints>
                                         <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="DJG-2Y-kYD"/>
+                                                <exclude reference="8bh-1I-d7g"/>
+                                            </mask>
                                             <mask key="constraints">
+                                                <exclude reference="gpj-J3-wf6"/>
+                                                <exclude reference="jh2-kR-vBR"/>
                                                 <exclude reference="U8O-eH-QB6"/>
+                                                <exclude reference="Un6-l2-I1K"/>
                                                 <exclude reference="jtL-Sk-tAE"/>
+                                                <exclude reference="cYE-ut-rrR"/>
+                                                <exclude reference="lGK-xP-Nlt"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="534" width="400" height="266"/>
+                                            <mask key="subviews">
+                                                <include reference="DJG-2Y-kYD"/>
+                                                <include reference="8bh-1I-d7g"/>
+                                            </mask>
                                             <mask key="constraints">
+                                                <include reference="gpj-J3-wf6"/>
+                                                <include reference="jh2-kR-vBR"/>
                                                 <include reference="U8O-eH-QB6"/>
+                                                <include reference="Un6-l2-I1K"/>
                                                 <include reference="jtL-Sk-tAE"/>
+                                                <include reference="cYE-ut-rrR"/>
+                                                <include reference="lGK-xP-Nlt"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -795,6 +838,9 @@ CLEANER-RUF</string>
                                         <fontDescription key="fontDescription" name="Agenda-Bold" family="Agenda" pointSize="22"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="20" y="342" width="360" height="26"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0D-8V-l6U">
                                         <rect key="frame" x="20" y="130" width="400" height="57"/>
@@ -804,12 +850,18 @@ CLEANER-RUF</string>
                                         <variation key="heightClass=regular" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="20" y="119" width="400" height="63"/>
                                         </variation>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="187" y="217" width="28" height="117"/>
+                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYv-mA-sEX">
                                         <rect key="frame" x="20" y="20" width="400" height="57"/>
                                         <fontDescription key="fontDescription" name="Agenda-Bold" family="Agenda" pointSize="150"/>
                                         <color key="textColor" red="0.1529411765" green="0.76078431369999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="180" y="69" width="42" height="175"/>
+                                        </variation>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1CK-SF-osU">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -824,7 +876,8 @@ CLEANER-RUF</string>
                                                 <exclude reference="u1G-mu-4QR"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="20" y="376" width="360" height="62"/>
                                             <mask key="constraints">
                                                 <include reference="u1G-mu-4QR"/>
                                             </mask>
@@ -967,5 +1020,7 @@ CLEANER-RUF</string>
         <image name="NumberPlate" width="300" height="76"/>
         <image name="NumberPlateiPad" width="274" height="55"/>
         <image name="logo" width="72" height="98"/>
+        <image name="trash1" width="23" height="29"/>
+        <image name="trashAll" width="23" height="29"/>
     </resources>
 </document>
