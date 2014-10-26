@@ -1,4 +1,4 @@
-//
+    //
 //  ClientDetailController.m
 //  Cleaner
 //
@@ -11,7 +11,10 @@
 #import "NSMutableAttributedString+Attributes.h"
 #import "UIFont+Cleaner.h"
 #import "ProgressHUD.h"
+#import "AJNotificationView.h"
 
+#define kMaxCleanersCount 2
+#define kMaxBrowseTimeOut 10
 
 typedef void (^SucessBlock)(id response, BOOL status);
 typedef void(^FailureBlock) (NSError *error);
@@ -25,9 +28,10 @@ typedef void(^FailureBlock) (NSError *error);
     __weak IBOutlet UITextField *tfCustomMsg;
     __weak IBOutlet UILabel *lblHeader;
     NSMutableArray *stationids ;
+    
     NSArray *reasonsArr;
-    SucessBlock multiPeerConnection;
-    FailureBlock multiPeerConnectionFailure;
+    NSMutableDictionary *connectedPeerSessions;
+    int cleanerCount ;
 }
 
 @property (nonatomic, strong) PLPartyTime *partyTime;
@@ -42,21 +46,31 @@ typedef void(^FailureBlock) (NSError *error);
     [pickerStations selectRow:0 inComponent:0 animated:YES];
     [pickerReasons selectRow:0 inComponent:0 animated:YES];
     [tfCustomMsg setText:@""];
-
 }
 
 
--(void) sendMessageRequestWithSuccess:(SucessBlock)messageSuccessBlock andFailed:(FailureBlock)messageFailureBlock{
-    MCPeerID *peerID = nil;
-    
+-(BOOL) isPeerACleaner:(MCPeerID*)peer{
+    BOOL isPeer = NO;
+    if ([peer.displayName rangeOfString:@"Cleaner-"].location != NSNotFound) {
+        isPeer = YES;
+    }
+    return isPeer;
+}
+
+-(NSArray*) filterCleanersFromConnectedPeers{
+    NSArray *cleaners = nil;
     if (self.partyTime.connectedPeers.count) {
         NSPredicate *bPredicate = [NSPredicate predicateWithFormat:@"displayName contains[c] 'Cleaner-'"];
-        
-        NSArray *cleaners = [self.partyTime.connectedPeers filteredArrayUsingPredicate:bPredicate];
-        peerID = [cleaners lastObject];
+        cleaners = [self.partyTime.connectedPeers filteredArrayUsingPredicate:bPredicate];
     }
+    return cleaners;
+}
+
+-(void) sendMessagetoPeer:(MCPeerID *)peerId{
     
-    if(peerID){
+    BOOL isCleaner = [self isPeerACleaner:peerId];
+    if (isCleaner) {
+        
         
         NSDictionary *dictionary = @{@"plateNumber":tfPlate.text,
                                      @"station":stationids[[pickerStations selectedRowInComponent:0]],
@@ -66,111 +80,61 @@ typedef void(^FailureBlock) (NSError *error);
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dictionary];
         
         BOOL success=  [self.partyTime sendData:data
-                                        toPeers:@[ peerID ]
+                                        toPeers:@[ peerId ]
                                        withMode:MCSessionSendDataReliable
                                           error:nil];
         if (success) {
-            messageSuccessBlock (@"Sent",YES);
+//            [ProgressHUD showSuccess:@"Sent"];
         }
         else {
             NSError *error = [NSError errorWithDomain:@"CLEANER-DEBUG" code:420 userInfo:@{@"message":@"Failed to send"}];
-            messageFailureBlock (error);
+//            [ProgressHUD showError:error.localizedDescription];
+        }
+        cleanerCount ++;
+        
+        if (cleanerCount == 1) {
+            [ProgressHUD show:@"Sending Message" Interaction:NO];
+        }
+        if (cleanerCount == kMaxCleanersCount) {
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(messageSent) object:nil];
+
+            [self messageSent];
         }
     }
-    else{
-
-        NSError *error = [NSError errorWithDomain:@"CLEANER-DEBUG" code:420 userInfo:@{@"message":@"Not connected to Cleaner"}];
-        messageFailureBlock (error);
-    }
 }
-
-
--(void) resetBlocks{
-
-    multiPeerConnection = nil;
-    multiPeerConnectionFailure = nil;
-
-}
-
--(void) disconnectParty{
-    [self.partyTime leaveParty];
-
-//    multiPeerConnection = ^(id response, BOOL state){
-//      
-//        [[[UIAlertView alloc] initWithTitle:@"DC"
-//                                   message:@"Disconnected"
-//                                  delegate:nil
-//                         cancelButtonTitle:@"Ok"
-//                          otherButtonTitles:nil, nil]show];
-    [self performSelector:@selector(resetBlocks) withObject:nil afterDelay:0.5];
-//       
-//    };
-}
-
 
 -(void) messageSent{
     
     [ProgressHUD showSuccess:@"Sent" Interaction:YES];
-    
     [self resetAllViewsContent];
     [self.partyTime leaveParty];
 
 }
 
 - (IBAction)sendData:(id)sender {
-    
-    [ProgressHUD show:@"Connecting" Interaction:NO];
-    
-    [self initMultiPeerConnectivity:^(id response, BOOL status) {
-        [ProgressHUD show:@"Searching" Interaction:NO];
-        NSLog(@"%@",response);
-        
-        if (status) {//Connected
-            [self sendMessageRequestWithSuccess:^(id response, BOOL status) {
-                NSLog(@"%@",response);
-                [self performSelector:@selector(messageSent) withObject:nil afterDelay:0.5];
 
-            } andFailed:^(NSError *error) {
-            
-                [[[UIAlertView alloc]initWithTitle:@"Please wait"
-                                           message:error.userInfo[@"message"]
-                                          delegate:nil
-                                 cancelButtonTitle:@"OK"
-                                 otherButtonTitles:nil, nil]show];
-                [self performSelector:@selector(disconnectParty) withObject:nil afterDelay:1.0];
-            }];
-
-        }
-    } failedToConnect:^(NSError *error) {
-        [[[UIAlertView alloc]initWithTitle:@"Please wait"
-                                   message:error.userInfo[@"message"]
-                                  delegate:nil
-                         cancelButtonTitle:@"OK"
-                         otherButtonTitles:nil, nil]show];
-        [self performSelector:@selector(disconnectParty) withObject:nil afterDelay:1.0];
-
-    }];
+    [self initMultiPeerConnectivity];
     
 }
 
 - (IBAction)backAction:(id)sender {
     [self.partyTime leaveParty];
+    [ProgressHUD dismiss];
     [self dismissViewControllerAnimated:NO completion:nil];
     
 }
 
-#pragma mark -
 
 
 #pragma mark - Standard Life Cycle
--(void) initMultiPeerConnectivity:(SucessBlock)success failedToConnect:(FailureBlock)failBlock{
-
+-(void) initMultiPeerConnectivity
+{
+    [ProgressHUD show:@"Connecting" Interaction:YES];
     self.partyTime = [PLPartyTime instance];
     self.partyTime.delegate = self;
     [self.partyTime joinRoom:self.gate withName:nil];
-    multiPeerConnection = success;
-    multiPeerConnectionFailure = failBlock;
-
+    cleanerCount = 0;
+    
 }
 
 -(void) initContentView{
@@ -292,17 +256,21 @@ typedef void(^FailureBlock) (NSError *error);
         if (IS_IPAD()) {
             NSLog(@"stopAcceptingGuests");
             [partyTime stopAcceptingGuests];
+            if (cleanerCount == 0) {
+                //Let the browser browse for timeout limit
+                //else show this message
+                [self performSelector:@selector(messageSent) withObject:nil afterDelay:kMaxBrowseTimeOut];
+            }
+            [self sendMessagetoPeer:peer];
+            
         }
-        multiPeerConnection(@"Connected",YES);
     }
     else if (state == MCSessionStateConnecting){
         NSLog(@"connecting to %@", peer.displayName);
-        //multiPeerConnection(@"Connecting",NO);
     }
     else
     {
         NSLog(@"Peer disconnected: %@", peer.displayName);
-        multiPeerConnection(@"Disconnected",NO);
     }
     
     NSLog(@"Current peers: %@", currentPeers);
@@ -316,7 +284,6 @@ typedef void(^FailureBlock) (NSError *error);
                       cancelButtonTitle:@"OK"
                       otherButtonTitles:nil] show];
     
-    multiPeerConnectionFailure (error);
 }
 
 
