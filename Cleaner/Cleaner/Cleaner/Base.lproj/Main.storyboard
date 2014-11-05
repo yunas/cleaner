@@ -419,9 +419,6 @@
                                                 <include reference="qxs-s4-L7P"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="-20" width="568" height="162"/>
-                                        </variation>
                                         <connections>
                                             <outlet property="dataSource" destination="NxV-S7-OMi" id="FNA-Su-feV"/>
                                             <outlet property="delegate" destination="NxV-S7-OMi" id="2uQ-AK-FQ8"/>
@@ -699,21 +696,21 @@ CLEANER-RUF</string>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="wE4-F8-8Ud"/>
+                                        <exclude reference="8B7-qc-cER"/>
+                                        <exclude reference="vxc-hA-mw0"/>
                                         <exclude reference="H9L-TR-kG5"/>
                                         <exclude reference="Nq9-wS-xje"/>
                                         <exclude reference="m3v-Sp-Kce"/>
-                                        <exclude reference="8B7-qc-cER"/>
-                                        <exclude reference="vxc-hA-mw0"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="wE4-F8-8Ud"/>
+                                        <include reference="8B7-qc-cER"/>
+                                        <include reference="vxc-hA-mw0"/>
                                         <include reference="H9L-TR-kG5"/>
                                         <include reference="Nq9-wS-xje"/>
                                         <include reference="m3v-Sp-Kce"/>
-                                        <include reference="8B7-qc-cER"/>
-                                        <include reference="vxc-hA-mw0"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -860,13 +857,13 @@ CLEANER-RUF</string>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="Hzp-cK-7nc"/>
+                                                <exclude reference="KiT-fA-EyT"/>
+                                                <exclude reference="OPz-BM-AJM"/>
                                                 <exclude reference="RHv-1v-fdU"/>
                                                 <exclude reference="Ton-ae-LXM"/>
                                                 <exclude reference="qnU-N9-uRV"/>
                                                 <exclude reference="UMy-GJ-J1O"/>
                                                 <exclude reference="iDK-cS-7S2"/>
-                                                <exclude reference="KiT-fA-EyT"/>
-                                                <exclude reference="OPz-BM-AJM"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -876,13 +873,13 @@ CLEANER-RUF</string>
                                             </mask>
                                             <mask key="constraints">
                                                 <include reference="Hzp-cK-7nc"/>
+                                                <include reference="KiT-fA-EyT"/>
+                                                <include reference="OPz-BM-AJM"/>
                                                 <include reference="RHv-1v-fdU"/>
                                                 <exclude reference="Ton-ae-LXM"/>
                                                 <include reference="qnU-N9-uRV"/>
                                                 <include reference="UMy-GJ-J1O"/>
                                                 <include reference="iDK-cS-7S2"/>
-                                                <include reference="KiT-fA-EyT"/>
-                                                <include reference="OPz-BM-AJM"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -896,12 +893,16 @@ CLEANER-RUF</string>
                                     <constraint firstItem="M1z-Or-hKY" firstAttribute="leading" secondItem="hGY-8l-dA8" secondAttribute="leading" id="D89-QI-hmT"/>
                                     <constraint firstItem="M1z-Or-hKY" firstAttribute="top" secondItem="cqp-H8-bsw" secondAttribute="bottom" constant="40" id="Dob-lJ-YTB"/>
                                     <constraint firstAttribute="trailing" secondItem="M1z-Or-hKY" secondAttribute="trailing" id="F3m-LP-hVw"/>
-                                    <constraint firstItem="K0D-8V-l6U" firstAttribute="centerX" secondItem="uYv-mA-sEX" secondAttribute="centerX" constant="-0.5" id="Fis-TX-NNy"/>
+                                    <constraint firstItem="K0D-8V-l6U" firstAttribute="centerX" secondItem="uYv-mA-sEX" secondAttribute="centerX" constant="-0.5" id="Fis-TX-NNy">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstItem="1CK-SF-osU" firstAttribute="trailing" secondItem="cqp-H8-bsw" secondAttribute="trailing" id="S0M-RM-NHW"/>
                                     <constraint firstItem="PFn-rV-zPw" firstAttribute="top" secondItem="K0D-8V-l6U" secondAttribute="bottom" constant="-2" id="TAO-sL-0SQ">
                                         <variation key="heightClass=regular-widthClass=compact" constant="11"/>
                                     </constraint>
-                                    <constraint firstAttribute="centerX" secondItem="uYv-mA-sEX" secondAttribute="centerX" constant="-1" id="Vbe-Zv-Q8L"/>
+                                    <constraint firstAttribute="centerX" secondItem="uYv-mA-sEX" secondAttribute="centerX" constant="-1" id="Vbe-Zv-Q8L">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstAttribute="centerX" secondItem="cqp-H8-bsw" secondAttribute="centerX" id="ae2-CI-CrL"/>
                                     <constraint firstAttribute="bottom" secondItem="M1z-Or-hKY" secondAttribute="bottom" id="bsg-ui-BV0"/>
                                     <constraint firstItem="cqp-H8-bsw" firstAttribute="top" secondItem="1CK-SF-osU" secondAttribute="bottom" constant="25" id="qFd-fy-5Fv"/>
@@ -915,15 +916,12 @@ CLEANER-RUF</string>
                                         <exclude reference="1CK-SF-osU"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="Vbe-Zv-Q8L"/>
-                                        <exclude reference="uEq-yC-krk"/>
                                         <exclude reference="S0M-RM-NHW"/>
                                         <exclude reference="vpx-30-V54"/>
+                                        <exclude reference="Vbe-Zv-Q8L"/>
+                                        <exclude reference="uEq-yC-krk"/>
                                         <exclude reference="2PE-Jh-bZN"/>
                                         <exclude reference="Fis-TX-NNy"/>
-                                        <exclude reference="0pB-d9-7aO"/>
-                                        <exclude reference="6EG-CV-EEg"/>
-                                        <exclude reference="TAO-sL-0SQ"/>
                                         <exclude reference="3ST-8j-U0j"/>
                                         <exclude reference="ae2-CI-CrL"/>
                                         <exclude reference="qFd-fy-5Fv"/>
@@ -932,6 +930,9 @@ CLEANER-RUF</string>
                                         <exclude reference="Dob-lJ-YTB"/>
                                         <exclude reference="F3m-LP-hVw"/>
                                         <exclude reference="bsg-ui-BV0"/>
+                                        <exclude reference="0pB-d9-7aO"/>
+                                        <exclude reference="6EG-CV-EEg"/>
+                                        <exclude reference="TAO-sL-0SQ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -940,15 +941,12 @@ CLEANER-RUF</string>
                                         <include reference="1CK-SF-osU"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="Vbe-Zv-Q8L"/>
-                                        <include reference="uEq-yC-krk"/>
                                         <include reference="S0M-RM-NHW"/>
                                         <include reference="vpx-30-V54"/>
+                                        <include reference="Vbe-Zv-Q8L"/>
+                                        <include reference="uEq-yC-krk"/>
                                         <include reference="2PE-Jh-bZN"/>
                                         <include reference="Fis-TX-NNy"/>
-                                        <include reference="0pB-d9-7aO"/>
-                                        <include reference="6EG-CV-EEg"/>
-                                        <include reference="TAO-sL-0SQ"/>
                                         <include reference="3ST-8j-U0j"/>
                                         <exclude reference="ae2-CI-CrL"/>
                                         <include reference="qFd-fy-5Fv"/>
@@ -957,6 +955,9 @@ CLEANER-RUF</string>
                                         <include reference="Dob-lJ-YTB"/>
                                         <include reference="F3m-LP-hVw"/>
                                         <include reference="bsg-ui-BV0"/>
+                                        <include reference="0pB-d9-7aO"/>
+                                        <include reference="6EG-CV-EEg"/>
+                                        <include reference="TAO-sL-0SQ"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -981,10 +982,10 @@ CLEANER-RUF</string>
                                 <exclude reference="Dk9-zf-i0A"/>
                                 <exclude reference="QMB-bo-NcZ"/>
                                 <exclude reference="egu-I4-qsG"/>
+                                <exclude reference="9xU-6u-PBD"/>
                                 <exclude reference="UcF-Jd-bfz"/>
                                 <exclude reference="baa-si-UsI"/>
                                 <exclude reference="rby-1D-nrq"/>
-                                <exclude reference="9xU-6u-PBD"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -999,10 +1000,10 @@ CLEANER-RUF</string>
                                 <include reference="hGY-8l-dA8"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="9xU-6u-PBD"/>
                                 <include reference="UcF-Jd-bfz"/>
                                 <include reference="baa-si-UsI"/>
                                 <include reference="rby-1D-nrq"/>
-                                <include reference="9xU-6u-PBD"/>
                             </mask>
                         </variation>
                     </view>
