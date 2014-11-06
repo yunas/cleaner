@@ -163,6 +163,13 @@ typedef void(^FailureBlock) (NSError *error);
                    @"Kratzer an Kotflügel",
                    @"Rückspiegel ist lose",
                    @"Reifendruck prüfen"];
+    
+    reasonsArr = @[@"Verschmutzung",
+                   @"Beschädigung",
+                   @"Fehlteil",
+                   @"Kennzeichen",
+                   @"Kein Fahrzeug auf Stellplatz"
+                   ];
 
     NSString *string = [[NSString alloc]initWithFormat:@"Cleaner-Ruf zu Gate %@ absetzen",self.gate];
     NSMutableAttributedString *stringAtt = [[NSMutableAttributedString alloc]initWithString:string];
@@ -233,6 +240,10 @@ typedef void(^FailureBlock) (NSError *error);
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     //TODO: whatsup !
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
+    return 40.0f;
 }
 
 #pragma mark - Party Time Delegate
