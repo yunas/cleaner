@@ -12,6 +12,7 @@
 #import "UIColor+Cleaner.h"
 #import "JobQueue.h"
 #import "UIAlertView+Blocks.h"
+#import "BackEndWebServiceManager.h"
 
 @interface CleanerDetailController () <PLPartyTimeDelegate>{
     
@@ -31,6 +32,7 @@
 @implementation CleanerDetailController
 
 - (IBAction)donePressed:(id)sender {
+    
     [UIView animateWithDuration:0.5 animations:^{
         [detailView setAlpha:0.0];
     }];
@@ -40,6 +42,26 @@
     [self performSelector:@selector(getNextJob) withObject:nil afterDelay:1.0];
 
     //TODO: Record or hit api
+    
+    NSDictionary *data = @{ACTION: @"addjob",
+                           AREA: lblGateName.text,
+                           ALTERNATESPACE: @"123",
+                           PLATE: tfPlateNumber.text,
+                           TASK: reasonDesc.text,
+                           STATUS_IN: @"WELL"
+                           };
+    
+    BackEndWebServiceManager *manager = [BackEndWebServiceManager sharedManager];
+    
+    [manager uploadDataToBackEndServer:data WithSuccess:^(NSDictionary *response) {
+        
+        NSLog(@"response:%@",response);
+        
+    } failure:^(NSError *error) {
+        
+        NSLog(@"Error:%@",[error localizedDescription]);
+        
+    }];
 }
 - (IBAction)trashOneJob:(id)sender {
 

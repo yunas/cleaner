@@ -57,6 +57,7 @@
 		45E3F65C19F7E29300E9A8EB /* AJNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65B19F7E29300E9A8EB /* AJNotificationView.m */; };
 		45E3F66019F7ECB700E9A8EB /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65F19F7ECB700E9A8EB /* AppSettings.m */; };
 		5C99E5FC1A0B4B87002AE1E8 /* UIColor+Cleaner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C99E5FB1A0B4B87002AE1E8 /* UIColor+Cleaner.m */; };
+		5C99E6071A0BA22C002AE1E8 /* BackEndWebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C99E6061A0BA22C002AE1E8 /* BackEndWebServiceManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		45E3F65F19F7ECB700E9A8EB /* AppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettings.m; sourceTree = "<group>"; };
 		5C99E5FA1A0B4B87002AE1E8 /* UIColor+Cleaner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Cleaner.h"; path = "Backend/Extensions/UIColor+Cleaner.h"; sourceTree = "<group>"; };
 		5C99E5FB1A0B4B87002AE1E8 /* UIColor+Cleaner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Cleaner.m"; path = "Backend/Extensions/UIColor+Cleaner.m"; sourceTree = "<group>"; };
+		5C99E6051A0BA22C002AE1E8 /* BackEndWebServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackEndWebServiceManager.h; sourceTree = "<group>"; };
+		5C99E6061A0BA22C002AE1E8 /* BackEndWebServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackEndWebServiceManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +291,7 @@
 		45C4A95319ED40F3001EB55C /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				5C99E6041A0BA22C002AE1E8 /* WebService */,
 				45E3F65D19F7ECB700E9A8EB /* AppSettings */,
 				45E3F65519F7DBAF00E9A8EB /* LocalNotificationManager */,
 				458FCD5C19EFF2A1000E6E66 /* JobQueue */,
@@ -355,6 +359,16 @@
 			);
 			name = AppSettings;
 			path = Backend/AppSettings;
+			sourceTree = "<group>";
+		};
+		5C99E6041A0BA22C002AE1E8 /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				5C99E6051A0BA22C002AE1E8 /* BackEndWebServiceManager.h */,
+				5C99E6061A0BA22C002AE1E8 /* BackEndWebServiceManager.m */,
+			);
+			name = WebService;
+			path = Backend/WebService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -524,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45E3F65819F7DBD500E9A8EB /* LocalNotificationManager.m in Sources */,
+				5C99E6071A0BA22C002AE1E8 /* BackEndWebServiceManager.m in Sources */,
 				455D3A0C19FA61B50038E78F /* ProgressHUD.m in Sources */,
 				45C4A95819ED42C8001EB55C /* UIFont+Cleaner.m in Sources */,
 				45201A0B19FDB79F008F19EA /* RIButtonItem.m in Sources */,
