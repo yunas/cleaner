@@ -15,7 +15,8 @@
 
 
 #define kMaxCleanersCount 2
-#define kMaxBrowseTimeOut 5
+#define kMaxMessageSendingTimeOut 5
+#define kMaxBrowseTimeOut 30
 
 typedef void (^SucessBlock)(id response, BOOL status);
 typedef void(^FailureBlock) (NSError *error);
@@ -128,6 +129,13 @@ typedef void(^FailureBlock) (NSError *error);
 
 
 #pragma mark - Standard Life Cycle
+
+-(void) stopBrowsing{
+    [ProgressHUD showError:@"No cleaner found" Interaction:YES];
+    [self.partyTime leaveParty];
+    cleanerCount = 0;
+}
+
 -(void) initMultiPeerConnectivity
 {
     [ProgressHUD show:@"Connecting" Interaction:NO];
@@ -135,6 +143,7 @@ typedef void(^FailureBlock) (NSError *error);
     self.partyTime.delegate = self;
     [self.partyTime joinRoom:self.gate withName:nil];
     cleanerCount = 0;
+    [self performSelector:@selector(stopBrowsing) withObject:nil afterDelay:kMaxBrowseTimeOut];
     
 }
 
@@ -266,12 +275,13 @@ typedef void(^FailureBlock) (NSError *error);
     {
         NSLog(@"Connected to %@", peer.displayName);
         if (IS_IPAD()) {
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(stopBrowsing) object:nil];
             NSLog(@"stopAcceptingGuests");
             [partyTime stopAcceptingGuests];
             if (cleanerCount == 0) {
                 //Let the browser browse for timeout limit
                 //else show this message
-                [self performSelector:@selector(messageSent) withObject:nil afterDelay:kMaxBrowseTimeOut];
+                [self performSelector:@selector(messageSent) withObject:nil afterDelay:kMaxMessageSendingTimeOut];
             }
             [self sendMessagetoPeer:peer];
             
