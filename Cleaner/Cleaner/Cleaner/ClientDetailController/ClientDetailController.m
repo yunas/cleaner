@@ -217,6 +217,7 @@ typedef void(^FailureBlock) (NSError *error);
 
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+
     if (pickerView.tag == 1) {
         return stationids.count;
     }
@@ -233,6 +234,10 @@ typedef void(^FailureBlock) (NSError *error);
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     //TODO: whatsup !
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
+    return 40;
 }
 
 #pragma mark - Party Time Delegate
