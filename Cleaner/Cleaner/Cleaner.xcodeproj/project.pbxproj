@@ -56,6 +56,7 @@
 		45E3F65819F7DBD500E9A8EB /* LocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65719F7DBD500E9A8EB /* LocalNotificationManager.m */; };
 		45E3F65C19F7E29300E9A8EB /* AJNotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65B19F7E29300E9A8EB /* AJNotificationView.m */; };
 		45E3F66019F7ECB700E9A8EB /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65F19F7ECB700E9A8EB /* AppSettings.m */; };
+		5C99E5FC1A0B4B87002AE1E8 /* UIColor+Cleaner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C99E5FB1A0B4B87002AE1E8 /* UIColor+Cleaner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,8 @@
 		45E3F65B19F7E29300E9A8EB /* AJNotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNotificationView.m; sourceTree = "<group>"; };
 		45E3F65E19F7ECB700E9A8EB /* AppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSettings.h; sourceTree = "<group>"; };
 		45E3F65F19F7ECB700E9A8EB /* AppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSettings.m; sourceTree = "<group>"; };
+		5C99E5FA1A0B4B87002AE1E8 /* UIColor+Cleaner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Cleaner.h"; path = "Backend/Extensions/UIColor+Cleaner.h"; sourceTree = "<group>"; };
+		5C99E5FB1A0B4B87002AE1E8 /* UIColor+Cleaner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Cleaner.m"; path = "Backend/Extensions/UIColor+Cleaner.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +300,8 @@
 		45C4A95419ED40F9001EB55C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5C99E5FA1A0B4B87002AE1E8 /* UIColor+Cleaner.h */,
+				5C99E5FB1A0B4B87002AE1E8 /* UIColor+Cleaner.m */,
 				45C4A95619ED42C8001EB55C /* UIFont+Cleaner.h */,
 				45C4A95719ED42C8001EB55C /* UIFont+Cleaner.m */,
 			);
@@ -528,6 +533,7 @@
 				45760EE419EB8477004640D7 /* ViewController.m in Sources */,
 				45760EE119EB8477004640D7 /* AppDelegate.m in Sources */,
 				45201A0F19FDB79F008F19EA /* UIAlertView+Blocks.m in Sources */,
+				5C99E5FC1A0B4B87002AE1E8 /* UIColor+Cleaner.m in Sources */,
 				45760F1719EB9383004640D7 /* ClientDetailController.m in Sources */,
 				458FCD5F19EFF2F9000E6E66 /* JobQueue.m in Sources */,
 				45C4A96519ED5B3A001EB55C /* NSMutableAttributedString+Attributes.m in Sources */,

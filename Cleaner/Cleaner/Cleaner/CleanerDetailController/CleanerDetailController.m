@@ -9,6 +9,7 @@
 #import "CleanerDetailController.h"
 #import "PLPartyTime.h"
 #import "UIFont+Cleaner.h"
+#import "UIColor+Cleaner.h"
 #import "JobQueue.h"
 #import "UIAlertView+Blocks.h"
 
@@ -79,9 +80,6 @@
         
     }], nil] show];
 
-    
-    
-    
 }
 #pragma mark - 
 
@@ -103,6 +101,7 @@
 
 -(void) initContentView{
     
+       self.view.backgroundColor = [UIColor CleanerBorderColourForGate:_gate];
 //    [lblHeader setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblHeader.font.pointSize]];
 //    [lblGateName setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblGateName.font.pointSize]];
 //    [lblStationNumber setFont:[UIFont AppFontWithType:FontType_Medium andSize:lblStationNumber.font.pointSize]];

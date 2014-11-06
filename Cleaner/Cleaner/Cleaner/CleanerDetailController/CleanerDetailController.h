@@ -11,5 +11,4 @@
 @interface CleanerDetailController : UIViewController
 
 @property (nonatomic,strong) NSString *gate;
-
 @end

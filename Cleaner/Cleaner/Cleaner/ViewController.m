@@ -45,7 +45,7 @@
     UIFont *font = [lblHeader font];
     [lblHeader setFont:[UIFont AppFontWithType:FontType_Bold andSize:[font pointSize]]];
     
-    float fontSize = 100.0;
+    float fontSize = 75.0;
     if (IS_IPAD()) {
         fontSize = 150.0;
     }
