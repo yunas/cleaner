@@ -403,7 +403,8 @@
                                                 <exclude reference="Rgc-ez-V32"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular">
+                                        <variation key="heightClass=regular" misplaced="YES">
+                                            <rect key="frame" x="227" y="32" width="145" height="25"/>
                                             <mask key="constraints">
                                                 <include reference="Fv2-px-adc"/>
                                                 <include reference="Rgc-ez-V32"/>
@@ -420,7 +421,8 @@
                                                 <exclude reference="izr-j6-L7x"/>
                                             </mask>
                                         </variation>
-                                        <variation key="heightClass=regular">
+                                        <variation key="heightClass=regular" misplaced="YES">
+                                            <rect key="frame" x="259" y="80" width="80" height="162"/>
                                             <mask key="constraints">
                                                 <include reference="izr-j6-L7x"/>
                                             </mask>
@@ -450,7 +452,8 @@
                                         <exclude reference="jf1-wK-YZS"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular">
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="1" y="134" width="600" height="242"/>
                                     <mask key="constraints">
                                         <include reference="kOi-zb-gG5"/>
                                         <include reference="IiT-Cn-2e9"/>
@@ -577,7 +580,7 @@
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVm-ut-MGh" userLabel="backView">
                                 <rect key="frame" x="185" y="698" width="231" height="90"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ts9-7e-5JO">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ts9-7e-5JO">
                                         <rect key="frame" x="20" y="20" width="191" height="50"/>
                                         <color key="backgroundColor" red="0.56470588235294117" green="0.69803921568627447" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -586,6 +589,7 @@
                                         <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="20"/>
                                         <state key="normal" title="Abschicken">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -604,7 +608,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zp2-oN-093">
                                         <rect key="frame" x="20" y="20" width="191" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="Agenda-Medium" family="Agenda" pointSize="20"/>
                                         <state key="normal" image="BackButton">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -641,7 +645,8 @@
                                         <exclude reference="tST-Xw-8lX"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular">
+                                <variation key="heightClass=regular" misplaced="YES">
+                                    <rect key="frame" x="1" y="720" width="600" height="80"/>
                                     <mask key="subviews">
                                         <include reference="Zp2-oN-093"/>
                                     </mask>
