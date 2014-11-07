@@ -58,6 +58,7 @@
 		45E3F66019F7ECB700E9A8EB /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E3F65F19F7ECB700E9A8EB /* AppSettings.m */; };
 		5C99E5FC1A0B4B87002AE1E8 /* UIColor+Cleaner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C99E5FB1A0B4B87002AE1E8 /* UIColor+Cleaner.m */; };
 		5C99E6071A0BA22C002AE1E8 /* BackEndWebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C99E6061A0BA22C002AE1E8 /* BackEndWebServiceManager.m */; };
+		5CC0705F1A0CD41700FE4399 /* UITextField+Cleaner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC0705E1A0CD41700FE4399 /* UITextField+Cleaner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,8 @@
 		5C99E5FB1A0B4B87002AE1E8 /* UIColor+Cleaner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Cleaner.m"; path = "Backend/Extensions/UIColor+Cleaner.m"; sourceTree = "<group>"; };
 		5C99E6051A0BA22C002AE1E8 /* BackEndWebServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackEndWebServiceManager.h; sourceTree = "<group>"; };
 		5C99E6061A0BA22C002AE1E8 /* BackEndWebServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackEndWebServiceManager.m; sourceTree = "<group>"; };
+		5CC0705D1A0CD41700FE4399 /* UITextField+Cleaner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextField+Cleaner.h"; path = "Backend/Extensions/UITextField+Cleaner.h"; sourceTree = "<group>"; };
+		5CC0705E1A0CD41700FE4399 /* UITextField+Cleaner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextField+Cleaner.m"; path = "Backend/Extensions/UITextField+Cleaner.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +311,8 @@
 				5C99E5FB1A0B4B87002AE1E8 /* UIColor+Cleaner.m */,
 				45C4A95619ED42C8001EB55C /* UIFont+Cleaner.h */,
 				45C4A95719ED42C8001EB55C /* UIFont+Cleaner.m */,
+				5CC0705D1A0CD41700FE4399 /* UITextField+Cleaner.h */,
+				5CC0705E1A0CD41700FE4399 /* UITextField+Cleaner.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 				455D3A0C19FA61B50038E78F /* ProgressHUD.m in Sources */,
 				45C4A95819ED42C8001EB55C /* UIFont+Cleaner.m in Sources */,
 				45201A0B19FDB79F008F19EA /* RIButtonItem.m in Sources */,
+				5CC0705F1A0CD41700FE4399 /* UITextField+Cleaner.m in Sources */,
 				45E3F66019F7ECB700E9A8EB /* AppSettings.m in Sources */,
 				45760F1D19EBB74B004640D7 /* CleanerDetailController.m in Sources */,
 				45E3F65C19F7E29300E9A8EB /* AJNotificationView.m in Sources */,
